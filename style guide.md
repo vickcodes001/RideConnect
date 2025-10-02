@@ -1,0 +1,9 @@
+BACKGROUND = #e4e7eb / rgb(228,231,235)
+
+PRIMARY COLOR = #071a39 / rgb(7,26,57)
+
+TEXT <p> = #33404c / rgb(51,64,57)
+
+HOVER/CTA/ACTIVE ETC = #7cd04f / rgb(124,208,79)
+
+SUB COLOR = #0e7399 / rgb (14,115,153)
