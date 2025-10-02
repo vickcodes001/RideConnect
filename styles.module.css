@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background-image: url(./airport-view-img-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 80%;
+  height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* .part-A {
+  display: flex;
+  flex-direction: column;
+} */
+
+h1 {
+  color: #071a39;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  color: #7cd04f;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  color: #33404c;
+}
+
+.cta-1 {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #071a39;
+  transition: background 0.3s color 0.3s;
+}
+
+.cta-1:hover {
+  background-color: #7cd04f;
+  color: white;
+}
+
+.cta-1 a {
+  text-decoration: none;
+  color: white;
+}
+
+.cta-2 a {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #33404c;
+  transition: background 0.3s color 0.3s;
+}
+
+.cta-2 a:hover {
+  color: #7cd04f;
+}
+
+
