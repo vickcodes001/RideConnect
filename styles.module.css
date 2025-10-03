@@ -10,6 +10,33 @@ body {
   background-image: url(./airport-view-img-2.png);
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 5px;
+  /* border: 2px solid #071a39; */
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px;
+}
+
+header a {
+  text-decoration: none;
+  color: #071a39;
+  /* border: 2px solid #071a39; */
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s text 0.3s;
+}
+
+header a:hover {
+  background-color: #7cd04f;
+  color: aliceblue;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
 }
 
 main {
@@ -19,14 +46,11 @@ main {
   gap: 1rem;
   margin: 0 auto;
   max-width: 80%;
-  height: 100vh;
+  height: 90vh;
   padding-bottom: 2rem;
+  /* border: 2px solid #071a39; */
 }
 
-/* .part-A {
-  display: flex;
-  flex-direction: column;
-} */
 
 h1 {
   color: #071a39;
@@ -39,6 +63,12 @@ span {
   color: #7cd04f;
 }
 
+.tagline {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
 p {
   display: flex;
   justify-content: center;
@@ -48,8 +78,8 @@ p {
 .cta-1 {
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
   background-color: #071a39;
   transition: background 0.3s color 0.3s;
 }
@@ -63,16 +93,4 @@ p {
   text-decoration: none;
   color: white;
 }
-
-.cta-2 a {
-  margin-left: 5px;
-  text-decoration: none;
-  color: #33404c;
-  transition: background 0.3s color 0.3s;
-}
-
-.cta-2 a:hover {
-  color: #7cd04f;
-}
-
 
