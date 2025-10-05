@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-image: url(./airport-view-img-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  /* border: 2px solid #071a39; */
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px;
+}
+
+header a {
+  text-decoration: none;
+  color: #071a39;
+  /* border: 2px solid #071a39; */
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s text 0.3s;
+}
+
+header a:hover {
+  background-color: #7cd04f;
+  color: aliceblue;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 80%;
+  height: 90vh;
+  padding-bottom: 2rem;
+  /* border: 2px solid #071a39; */
+}
+
+h1 {
+  color: #071a39;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  color: #7cd04f;
+}
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  color: #33404c;
+}
+
+.cta-1 {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  background-color: #071a39;
+  transition: background 0.3s color 0.3s;
+}
+
+.cta-1:hover {
+  background-color: #7cd04f;
+  color: white;
+}
+
+.cta-1 a {
+  text-decoration: none;
+  color: white;
+}
