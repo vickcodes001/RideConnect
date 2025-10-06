@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #33404c;
+}
+
+header {
+  padding: 20px 15px;
+  border-bottom: 1px solid lightgreen;
+}
+
+.h-div {
+  display: flex;
+  gap: 50px;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.arrow-back {
+  width: 25px;
+}
+
+header h2 {
+  font-size: 20px;
+}
