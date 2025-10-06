@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-image: url(/asset/airport-view-img-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  /* border: 2px solid #071a39; */
+}
+
+header {
+  border-radius: 35px;
+  width: 15%;
+  margin: 0.5rem;
+  transition: background 0.3s;
+}
+
+header img {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+header:hover {
+  background-color: #7cd04f;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 80%;
+  height: 90vh;
+  padding-bottom: 2rem;
+  /* border: 2px solid #071a39; */
+}
+
+
+h1 {
+  color: #071a39;
+  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  color: #7cd04f;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  color: #33404c;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  background-color: #071a39;
+  transition: background 0.3s color 0.3s;
+}
+
+.button1:hover {
+  background-color: #7cd04f;
+  color: white;
+}
+
+
+.button2 {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  background-color: #071a39;
+  transition: background 0.3s color 0.3s;
+}
+
+.button2:hover {
+  background-color: #7cd04f;
+  color: white;
+}

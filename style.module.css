@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-image: url(./airport-view-img-2.png);
+  background-image: url(./asset/airport-view-img-2.png);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
@@ -51,7 +51,6 @@ main {
   /* border: 2px solid #071a39; */
 }
 
-
 h1 {
   color: #071a39;
   /* text-transform: uppercase; */
@@ -93,4 +92,3 @@ p {
   text-decoration: none;
   color: white;
 }
-
