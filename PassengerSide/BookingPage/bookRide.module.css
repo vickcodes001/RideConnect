@@ -7,6 +7,12 @@
 }
 body {
     background: #e4e7eb;
+    /* display: grid;
+    align-items: center;
+    justify-content: center; */
+}
+.parent {
+    max-width: 500px;
 }
 .return-home img{
     width: 2rem;
@@ -21,6 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     background: white;
+    border: 0.1rem solid #071a39;
     margin: 1rem;
     padding: 1.5rem;
     border-radius: 1rem;
@@ -52,6 +59,7 @@ body {
     display: flex;
     justify-content: space-between;
     background: white;
+    border: 0.1rem solid #071a39;
     margin: 1rem;
     padding: 1.5rem;
     border-radius: 1rem;
@@ -66,7 +74,7 @@ body {
     right: 0;
     top: 0;
     padding: 0.3rem;
-    background: #7cd04f;
+    background: #071a39;
     color: white;
     border-top-right-radius: 0.85rem;
     border-bottom-left-radius: 1rem;
@@ -143,29 +151,3 @@ a {
 a:hover {
     background: #7cd04f;
 }
-/* footer img {
-    width: 2rem;
-}
-footer {
-    position: fixed;
-    right: 0;
-    left: 0;
-    bottom: 0;
-}
-.footer-menu {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2.5rem;
-    border-top: 0.1rem solid white;
-}
-.footer-menu div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-}
-.footer-menu div:hover {
-    background: #7cd04f;
-} */
