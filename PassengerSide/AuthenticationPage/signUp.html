@@ -16,26 +16,35 @@
     </header>
     <main>
       <p>Enter your details to start riding with RideConnect.</p>
+
       <form action="submit">
-        <label for="full-name">Full Name</label>
-        <input type="text" placeholder="e.g. Adanna Eze" required>
-
-        <label for="email">Email Address</label>
-        <input type="text" placeholder="you@example.com" required>
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Create a strong password" required>
-
-        <label for="phone-number">Phone Number</label>
-        <div>
-          <p>+234</p>
-          <input type="tel" placeholder="801 234 5678">
+        <div class="field1">
+          <label for="full-name" id="full-name" name="name">Full Name</label>
+          <input type="text" placeholder="e.g. Adanna Eze" required>
         </div>
 
-        <button type="submit">
+        <div class="field2">
+          <label for="email" id="email">Email Address</label>
+          <input type="text" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field3">
+          <label for="password" id="password">Password</label>
+          <input type="password" placeholder="Create a strong password" required>
+        </div>
+
+        <div class="field4">
+          <label for="phone-number" id="phone-number">Phone Number</label>
+          <div class="field4B">
+            <p class="country-code">+234</p>
+            <input type="tel" placeholder="801 234 5678" required>
+          </div>
+        </div>
+
+        <button type="submit" src="/PassengerSide/Verification/otp-verification.html">
           Sign Up as a Passenger
         </button>
-        <p>Already have an account? <a href="#">Log In</a></p>
+        <p class="footer">Already have an account? <a href="/Authentication/login.html">Log In</a></p>
       </form>
     </main>
   </body>
