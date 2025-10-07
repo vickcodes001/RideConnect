@@ -19,7 +19,7 @@ header {
   border-radius: 35px;
   width: 15%;
   margin: 0.5rem;
-  transition: background 0.3s;
+  transition: transform 0.3s ease-in-out;
 }
 
 header img {
@@ -28,7 +28,8 @@ header img {
 }
 
 header:hover {
-  background-color: #7cd04f;
+  /* background-color: #7cd04f; */
+  transform: scale(1.3);
 }
 
 main {
