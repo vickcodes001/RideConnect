@@ -19,6 +19,7 @@ header {
 
 header img {
   margin: 1rem;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
