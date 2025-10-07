@@ -1,0 +1,88 @@
+body {
+    justify-items: center;
+}
+
+* {
+    color: #33404c;
+
+
+
+}
+
+input {
+    padding: 15px;
+    border-radius: 7px;
+    height: 5px;
+    width: 300px;
+    border: 1px solid rgb(123, 182, 123);
+}
+
+.ntorobia {
+    margin: 20px;
+    margin-top: 0%;
+}
+
+button {
+    width: 300px;
+    margin-left: 25px;
+    border-radius: 7px;
+    background-color: green;
+    color: white;
+    width: 330px;
+    padding: 10px;
+    border: none;
+}
+
+.ada {
+    padding: 15px;
+    border-radius: 7px;
+    height: 5px;
+
+
+}
+
+hr {
+    width: 330px;
+    border-top: 9px rgb(76, 156, 76);
+
+}
+
+.oti {
+    font-size: 14px;
+}
+
+.stt {
+    background-color: blue;
+}
+
+.ude {
+    margin-left: 20px;
+    margin-bottom: 0%;
+
+}
+
+
+.www {
+    justify-items: center;
+}
+
+.dey {
+    font-weight: bold;
+    margin-left: 20px;
+    width: 90%;
+    text-align: center;
+    font-size: 14px;
+}
+
+img {
+    height: 20px;
+    width: 20px;
+
+}
+
+.weee {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    padding: 0 50px;
+}
