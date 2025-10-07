@@ -19,6 +19,11 @@ header {
 
 header img {
   margin: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+header img:hover {
+  transform: scale(1.2);
 }
 
 header h1 {
@@ -124,6 +129,11 @@ button {
 button:hover {
   background: #7cd04f;
   border: none;
+}
+
+button a {
+  text-decoration: none;
+  color: white;
 }
 
 .footer {
