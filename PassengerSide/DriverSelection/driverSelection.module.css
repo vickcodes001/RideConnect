@@ -21,7 +21,7 @@ p {
 
 header {
   padding: 20px 15px;
-  border-bottom: 1px solid lightgreen;
+  border-bottom: 1px solid #071a39;
 }
 
 .h-div {
@@ -50,7 +50,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 1px solid lightgreen;
+  border: 1px solid #071a39;
   border-radius: 10px;
   padding: 10px;
 }
@@ -60,7 +60,7 @@ main {
   gap: 10px;
   padding: 10px 0;
   width: 90%;
-  border-bottom: 1px solid rgba(144, 238, 144, 0.307);
+  border-bottom: 1px solid #071a3950;
 }
 
 .driver-card-img {
@@ -100,8 +100,13 @@ main {
 }
 
 .decision-btn button:last-of-type {
-  background: rgb(84, 227, 84);
+  background: #071a39;
   color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.decision-btn button:last-of-type:hover {
+  background: #7cd04f;
 }
 
 footer {
@@ -122,6 +127,11 @@ footer button {
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  background: rgb(84, 227, 84);
+  background: #071a39;
   color: white;
+  transition: background 0.3s;
+}
+
+footer button:hover {
+  background: #7cd04f;
 }
