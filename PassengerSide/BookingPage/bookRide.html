@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Ride</title>
     <link rel="stylesheet" href="bookRide.module.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
   </head>
   <body>
+    <!-- the parent div -->
     <div class="parent">
       <div class="return-home">
-        <img src="assets/icons8-left-arrow-50.png" alt="" />
+        <a href=""><img src="assets/icons8-left-arrow-50.png" alt="" /></a>
       </div>
       <h1 class="heading">Select a ride</h1>
+
+      <!-- the solo ride section -->
       <div class="solo-ride">
         <div class="solo-ride-child">
           <div class="image1">
@@ -28,6 +29,8 @@
         </div>
         <h1 class="solo-ride-amount">₦20,000</h1>
       </div>
+
+      <!-- the shared ride section -->
       <div class="shared-ride">
         <div class="shared-ride-child">
           <div class="image2">
@@ -41,6 +44,8 @@
         <p class="saved-percent">save 50%</p>
         <h1 class="shared-ride-amount">₦10,000</h1>
       </div>
+
+      <!-- the cost comparison section -->
       <section class="cost-com">
         <h2>Cost comparison</h2>
         <div class="cost-com-calc">
@@ -57,7 +62,9 @@
             <p>₦10,000</p>
           </div>
         </div>
-        <a href="../DriverSelection/driverSelection.html">Confirm Ride</a>
+
+        <!-- the summit button -->
+        <a href="../DriverSelection/driverSelection.html" class="confirm-ride">Confirm Ride</a>
       </section>
     </div>
     
