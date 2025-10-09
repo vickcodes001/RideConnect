@@ -61,9 +61,7 @@ form input {
     border: 0.12rem solid #071a39;
     padding-left: 2.5rem;
 }
-/* form input::placeholder {
-    padding-left: 2rem;
-} */
+
 .desti {
     margin-left: 1rem;
     font-weight: 500; 
