@@ -1,12 +1,11 @@
 body {
     justify-items: center;
+    background-color: #e4e7eb;
 }
 
 * {
     color: #33404c;
-
-
-
+    font-family: 'Poppins', sans-serif;
 }
 
 input {
