@@ -7,6 +7,12 @@
 }
 body {
     background: #e4e7eb;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.parent {
+    max-width: 500px;
 }
 .return-home img{
     width: 2rem;
@@ -17,16 +23,19 @@ body {
     text-align: center;
     font-weight: 600;
 }
+
+/* the solo ride section */
 .solo-ride {
     display: flex;
     justify-content: space-between;
     background: white;
+    border: 0.1rem solid #071a39;
     margin: 1rem;
     padding: 1.5rem;
     border-radius: 1rem;
 }
 .solo-ride:hover {
-    border: 0.2rem solid #7cd04f;
+    border: 0.12rem solid #7cd04f;
 }
 .solo-ride-child {
     display: flex;
@@ -48,17 +57,20 @@ body {
     font-weight: 500;
     font-size: 25px;
 }
+
+/* the shared ride section */
 .shared-ride {
     display: flex;
     justify-content: space-between;
     background: white;
+    border: 0.1rem solid #071a39;
     margin: 1rem;
     padding: 1.5rem;
     border-radius: 1rem;
     position: relative;
 }
 .shared-ride:hover {
-    border: 0.2rem solid #7cd04f;
+    border: 0.12rem solid #7cd04f;
 }
 .saved-percent {
     font-size: 12px;
@@ -66,7 +78,7 @@ body {
     right: 0;
     top: 0;
     padding: 0.3rem;
-    background: #7cd04f;
+    background: #071a39;
     color: white;
     border-top-right-radius: 0.85rem;
     border-bottom-left-radius: 1rem;
@@ -92,6 +104,7 @@ body {
     font-size: 25px;
     padding: 1rem 0;
 }
+/* the cost comparison section*/
 .cost-com {
     display: grid;
     margin: 1rem;
@@ -102,6 +115,7 @@ body {
 }
 .cost-com-calc {
     background: white;
+    border: 0.1rem solid #071a39;
     padding: 1.5rem;
     border-radius: 1rem;
 }
@@ -122,14 +136,8 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.8rem;
 }
-.confirm-ride {
-    background: #071a39;
-    text-decoration: none;
-    color: white;
-    margin-top: 1rem;
-    padding: 1.5rem;
-}
-a {
+/* summit button */
+.confirm-ride{
     background: #071a39;
     margin: 2rem 0;
     padding: 1.5rem;
@@ -140,32 +148,6 @@ a {
     letter-spacing: 1px;
     border-radius: 3rem;
 }
-a:hover {
+.confirm-ride:hover {
     background: #7cd04f;
 }
-/* footer img {
-    width: 2rem;
-}
-footer {
-    position: fixed;
-    right: 0;
-    left: 0;
-    bottom: 0;
-}
-.footer-menu {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2.5rem;
-    border-top: 0.1rem solid white;
-}
-.footer-menu div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-}
-.footer-menu div:hover {
-    background: #7cd04f;
-} */
