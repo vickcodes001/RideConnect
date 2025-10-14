@@ -1,24 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function() {
-
-//     const searchInput = document.getElementById('search');
-//     const destinations = document.querySelectorAll('.places');
-
-//     searchInput.addEventListener('input', function(event) {
-
-//         const searchQuery = event.target.value.toLowerCase();
-
-//         destinations.forEach(function(destination) {
-//             const destinationName = destination.querySelector('p').textContent.toLowerCase();
-
-//             if (destinationName.includes(searchQuery)) {
-//                 destination.style.display = 'flex';
-//             } else {
-//                 destination.style.display = 'none';
-//             }
-//         });
-//     });
-
-// });
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -59,3 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+function selectDestination(destination, soloPrice, sharedPrice) {
+    const rideData = {
+        destination: destination,
+        soloPrice: soloPrice,
+        sharedPrice: sharedPrice
+    };
+    localStorage.setItem('selectedRide', JSON.stringify(rideData));
+    window.location.href = '../BookingPage/bookRide.html';
+}

@@ -69,7 +69,14 @@ form input {
     display: flex;
     margin: 2rem;
     gap: 2rem;
+    cursor: pointer;
 }
 .places img {
     width: 1.5rem;
+}
+.price-indicator {
+    font-size: 12px;
+    color: #28a745;
+    font-weight: 500;
+    margin-left: auto;
 }
