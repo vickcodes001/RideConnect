@@ -42,7 +42,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 20px 120px 20px;
 }
 
 .driver-card {
@@ -118,6 +118,8 @@ footer {
   border-top: 1px solid lightgrey;
   position: fixed;
   bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 footer button {

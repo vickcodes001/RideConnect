@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactDriverBtn = document.getElementById("contact-driver-btn");
   const closeBtn = document.querySelector(".close-btn");
   const callDriverBtn = document.getElementById("call-driver-btn");
-  const container = document.getElementById("container")
+  const container = document.getElementById("container");
 
   // Function to open the modal
   contactDriverBtn.addEventListener("click", function () {
@@ -23,12 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close the modal if user clicks on the overlay
   window.addEventListener("click", function (event) {
     if (event.target === container) {
-      closeModal()
+      closeModal();
     }
   });
-
-
-
 
   // Function to trigger the phone call
   callDriverBtn.addEventListener("click", function () {
