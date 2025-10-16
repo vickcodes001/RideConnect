@@ -1,0 +1,341 @@
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  padding: 20px 15px;
+  width: 100%;
+}
+
+header h2 {
+  font-size: 20px;
+}
+
+.arrow-back {
+  width: 25px;
+}
+
+.h-div {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.driver-img {
+  height: 100px;
+  width: 100px;
+}
+
+.driver-img img {
+  object-fit: cover;
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+.driver-details,
+.car-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.driver-details h4 {
+  margin-bottom: 7px;
+}
+
+.ratings {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ratings img {
+  width: 12px;
+  height: 12px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.driver-opt-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.driver-opt-btn button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+.driver-opt-btn button:last-of-type {
+  background: #071a39;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.driver-opt-btn button:last-of-type:hover {
+  background: #7cd04f;
+}
+
+.payment-btn {
+  height: 50px;
+  width: 100%;
+}
+
+.payment-btn button {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #071a39;
+}
+
+.payment-btn button:hover {
+  background-color: #7cd04f;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.658);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: -1;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Cancel Modal */
+.cancel-modal {
+  /* display: block; */
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  height: 400px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+  transform 0.4s ease-out;
+}
+
+.cancel-modal.active {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cancel-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 40px 20px;
+}
+
+.cancel-modal-container .first-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.cancel-modal-container .first-section .cancel-icon {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  top: 89px;
+  height: 70px;
+  width: 70px;
+  background: radial-gradient(circle, #ff00005e 0%, #fff 50%, transparent 100%);
+  border-radius: 35px;
+  animation: zoomBlink 2s infinite;
+}
+
+@keyframes zoomBlink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.cancel-modal-container .first-section img {
+  width: 70px;
+}
+
+.cancel-modal-container .cancel-opt-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.cancel-modal-container .cancel-opt-btn button {
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+}
+
+.cancel-modal-container .cancel-opt-btn button:last-of-type {
+  background: #071a39;
+  color: white;
+}
+
+/* Modal Styles with Transitions */
+.modal {
+  display: block;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  height: 600px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+    transform 0.4s ease-out;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  position: relative;
+}
+
+.close-btn {
+  font-size: 30px;
+  font-weight: 500;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out 0.15s;
+}
+
+.modal.active .close-btn {
+  opacity: 1;
+}
+
+.first-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.driver-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 80%;
+}
+
+.driver-image {
+  height: 100px;
+  width: 100px;
+}
+
+.driver-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.second-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-out 0.1s;
+}
+
+.modal.active .second-section {
+  opacity: 1;
+}
+
+.driver-phone {
+  font-size: 20px;
+}
+
+.phone-icon {
+  width: 15px;
+  color: white;
+}
+
+.call-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #071a39;
+  color: white;
+  cursor: pointer;
+}
+
+.second-section button,
+.another-ride-link {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}

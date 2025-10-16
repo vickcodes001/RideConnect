@@ -1,0 +1,101 @@
+body {
+  justify-items: center;
+}
+
+input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 0.4rem;
+  border: 2px solid #071a39;
+  background-color: transparent;
+  transition: border 0.3s ease-in-out;
+}
+
+label {
+  font-weight: 500;
+}
+
+.stspan {
+  color: #33404c;
+  font-size: 2rem;
+}
+
+.ndspan {
+  color: rgb(77, 179, 77);
+  font-size: 2rem;
+}
+
+.dude {
+  margin-bottom: 0;
+
+}
+
+* {
+  color: #33404c;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  padding: 10px;
+  width: 20rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #071a39;
+  color: white;
+  font-weight: 500;
+  transition: background 0.3s ease-in-out;
+}
+
+.niga {
+  margin-top: -1.5rem;
+}
+
+.mama {
+  justify-items: center;
+}
+
+body {
+  background-color: #e4e7eb;
+}
+
+.ede {
+  justify-items: center;
+  width: 350px;
+  height: 400px;
+  margin-top: 2rem;
+  font-weight: 600;
+  border-radius: 0.4rem;
+}
+
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.anchor {
+  margin-left: 11.5rem;
+}
+
+input:focus {
+  border: 2px solid #7cd04f;
+  outline: none;
+}
+
+button:hover {
+  background: #7cd04f;
+  border: none;
+  outline: none;
+}
+
+a p:hover {
+  color: #7cd04f;
+}
+
+
+
+
+.dede {
+  margin-bottom: 20px;
+  margin-top: -0.8rem;
+}
