@@ -26,9 +26,9 @@
       </header>
 
       <!-- main section -->
-      <main>
+      <main id="main-driver-info">
         <div class="driver-img">
-          <img src="../DriverSelection/assets/driver2.jpg" alt="" />
+          <img src="../DriverSelection/assets/driver2.jpg" alt="" id="driver-img"/>
         </div>
         <div class="driver-details">
           <h4>Clown Guy</h4>
@@ -52,7 +52,6 @@
       <!-- cancel modal pop up for the driver -->
       <div class="cancel-modal" id="cancel-modal">
         <div class="cancel-modal-container">
-          <span class="close-btn">&times;</span>
           <div class="first-section">
             <h3>Cancel Ride</h3>
             <div class="cancel-icon"></div>
@@ -60,13 +59,13 @@
               src="../DriverSelection/assets/cancel-icon.png"
               alt="/cancellation-icon"
             />
-            <p>Are you sure you want to cancel ride‽</p>
+            <p>Are you sure you want to cancel ride?</p>
           </div>
 
           <!--  -->
           <div class="cancel-opt-btn">
-            <button>Go Back</button>
-            <button>Confirm Cancellation</button>
+            <button id="go-back-btn">Go Back</button>
+            <button id="confirm-cancellation-btn">Confirm Cancellation</button>
           </div>
         </div>
       </div>
@@ -74,7 +73,7 @@
       <!-- modal pop up for contact driver -->
       <div id="driver-modal" class="modal">
         <div class="modal-content">
-          <span class="close-btn">&times;</span>
+          <span class="close-btn" id="close-btn">&times;</span>
           <div class="driver-info">
             <!--  -->
             <div class="first-section">
@@ -113,9 +112,6 @@
                 /></span>
                 Call Driver
               </button>
-              <a href="/location.html" class="another-ride-link"
-                ><button>Book Another Ride</button></a
-              >
             </div>
           </div>
         </div>
@@ -128,7 +124,7 @@
           <button id="contact-driver-btn">Contact Driver</button>
         </div>
         <div class="payment-btn">
-          <button>Make Payment</button>
+          <a href="#"><button>Make Payment</button></a>
         </div>
       </footer>
     </div>
