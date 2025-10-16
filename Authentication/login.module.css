@@ -17,12 +17,12 @@ label {
 
 .stspan {
   color: #33404c;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .ndspan {
   color: rgb(77, 179, 77);
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .dude {
@@ -37,7 +37,8 @@ label {
 
 button {
   padding: 10px;
-  width: 325px;
+  width: 20rem;
+  border: none;
   border-radius: 0.4rem;
   background-color: #071a39;
   color: white;
@@ -46,7 +47,7 @@ button {
 }
 
 .niga {
-  margin-top: -2rem;
+  margin-top: -1.5rem;
 }
 
 .mama {
@@ -61,6 +62,8 @@ body {
   justify-items: center;
   width: 350px;
   height: 400px;
+  margin-top: 2rem;
+  font-weight: 600;
   border-radius: 0.4rem;
 }
 
@@ -94,4 +97,5 @@ a p:hover {
 
 .dede {
   margin-bottom: 20px;
+  margin-top: -0.8rem;
 }
