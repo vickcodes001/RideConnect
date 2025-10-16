@@ -53,7 +53,7 @@ body {
 .solo-ride-content p {
     font-size: 12px;
 }
-.solo-ride-amount {
+#solo-ride-amount {
     font-weight: 500;
     font-size: 25px;
 }
@@ -99,7 +99,7 @@ body {
 .shared-ride-content p {
     font-size: 12px;
 }
-.shared-ride-amount {
+#shared-ride-amount {
     font-weight: 500;
     font-size: 25px;
     padding: 1rem 0;
