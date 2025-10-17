@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #33404c;
+    font-family: 'poppins', sans-serif;
+}
+body {
+    background: #e4e7eb;
+}
+.parent {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+}
+
+/* the return arrow styling */
+.return-arrow img {
+    width: 2rem;
+}
+
+/* contents */
+.content1 {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2.5rem;
+}
+.content2 {
+    text-align: center;
+    margin: 0 1.5rem;
+}
+
+/* the passengers styling */
+.shared-passengers {
+    margin-top: 2.5rem;
+    display: grid;
+    gap: 1rem;
+}
+/* passenger one styling */
+.passenger1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.12rem solid #071a39;
+}
+.passenger1-child {
+    display: flex;
+    gap: 1.5rem;
+}
+.passenger1-image {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.passenger1-image img {
+    width: 3.5rem;
+}
+.passenger1-details h3 {
+    font-weight: 600;
+}
+.passenger1-amt {
+    font-weight: 600;
+}
+
+/* passenger two styling */
+.passenger2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.12rem solid #071a39;
+}
+.passenger2-child {
+    display: flex;
+    gap: 1.5rem;
+}
+.passenger2-image {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.passenger2-image img {
+    width: 3.5rem;
+}
+.passenger2-details h3 {
+    font-weight: 600;
+}
+.passenger2-amt {
+    font-weight: 600;
+}
+
+/* the total fare styling */
+.total-fare {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-top: 0.12rem solid #071a3959;
+    margin-top: 1rem;
+}
+.totalFare-amt {
+    font-weight: 600;
+}
+
+/* the go to trip styling */
+.startRide-btn {
+    background: #071a39;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 0;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: 0.4s ease-in-out;
+}
+.startRide-btn:hover {
+    background: #7cd04f;
+}
