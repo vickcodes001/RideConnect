@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Function to trigger the phone call
   callDriverBtn.addEventListener("click", function () {
-    window.location.href = "tel:+234 813 380 9246";
+    window.location.href = "tel:+234 9130 5334 42";
   });
   
   // Cancel ride flow 
