@@ -18,6 +18,10 @@ form.addEventListener('submit', function(event){
   validateInputs();
 });
 
+
+// Regex to allow optional + sign, followed by 7–15 digits (ITU standard)
+const phonePattern = /^\+?\d{7,15}$/; 
+
 // function for validateInputs
 const validateInputs = function() {
   const fullNameValue = fullName.value.trim();
@@ -34,7 +38,7 @@ const validateInputs = function() {
   
   // Email 
   if (emailValue === '') {
-    setError(email, 'Email cannot be empty');
+    setError(email, 'Email address cannot be empty');
   } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailValue)) {
     setError(email, 'Enter a valid email');
   } else {
@@ -66,6 +70,11 @@ const setError = function(element, message) {
   errorDisplay.innerText = message;
   field.classList.add('error');
   field.classList.remove('success');
+
+  // error timeout function
+  setTimeout(function() {
+    errorDisplay.innerText = '';
+  }, 5000); 
 }
 
 // success for input fields
@@ -77,8 +86,5 @@ const setSuccess = function(element) {
   field.classList.add('success');
   field.classList.remove('error');
 }
-
-// Regex to allow optional + sign, followed by 7–15 digits (ITU standard)
-const phonePattern = /^\+?[1-9]\d{6,14}$/;
 
 

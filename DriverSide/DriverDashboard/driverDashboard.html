@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.module.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header_text">
+      <h1>GoodMorning, John</h1>
+      <p>Ready for your next ride?</p>
+    </div>
+    <div class="notis">
+      <img src="/DriverSide/DriverDashboard/assets/icons8-notification-bell-24.png" alt="" width="40">
+      <div class="notis_show"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="avail_rides">
+      <div class="avail_ridesdiv">
+        <h4>Available for rides</h4>
+        <button class="toggle_switch">
+          <div class="off-circle"></div>
+          <div class="on-circle"></div>
+        </button>
+      </div>
+    </section>
+
+    <section class="ridehistory">
+      <h2>Ride History</h2>
+      <div class="ridehistorydiv1">
+        <div class="ridehistorydiv1_element">
+          <div class="ridehistorydiv1_elementtext">
+            <h4>Polo Park Mall, GRA, Enugu</h4>
+            <p>12:30PM</p>
+          </div>
+          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+        </div>
+      </div>
+
+      <div class="ridehistorydiv2">
+        <div class="ridehistorydiv2_element">
+          <div class="ridehistorydiv2_elementtext">
+            <h4>Akanu Ibiam Intl Airport, Emene, Enugu</h4>
+            <p>1:00PM</p>
+          </div>
+          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+      </div>
+    </section>
+
+    <section class="payments">
+      <h2>Payments</h2>
+      <div class="payment_container">
+        <div class="payment_containerelement">
+          <div class="payment_containerelementtext">
+            <h4>Manage payment methods</h4>
+          </div>
+          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="driverDashboard.js"></script>
+</body>
+</html>
