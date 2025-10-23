@@ -74,7 +74,7 @@ const setError = function(element, message) {
   // error timeout function
   setTimeout(function() {
     errorDisplay.innerText = '';
-  }, 5000); 
+  }, 3000); 
 }
 
 // success for input fields

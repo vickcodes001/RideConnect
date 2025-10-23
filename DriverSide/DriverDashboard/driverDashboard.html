@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="dashboard.module.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="driverDashboard.module.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <header>
     <div class="header_text">
@@ -17,13 +21,15 @@
       <img src="/DriverSide/DriverDashboard/assets/icons8-notification-bell-24.png" alt="" width="40">
       <div class="notis_show"></div>
     </div>
+
+    <!-- pop-up for ride request -->
   </header>
 
   <main class="container">
     <section class="avail_rides">
       <div class="avail_ridesdiv">
         <h4>Available for rides</h4>
-        <button class="toggle_switch">
+        <button class="toggle_switch" id="toggle_switch">
           <div class="off-circle"></div>
           <div class="on-circle"></div>
         </button>
@@ -38,7 +44,7 @@
             <h4>Polo Park Mall, GRA, Enugu</h4>
             <p>12:30PM</p>
           </div>
-          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+          <a href="/DriverSide/History/history.html"><img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
         </div>
       </div>
 
@@ -48,8 +54,8 @@
             <h4>Akanu Ibiam Intl Airport, Emene, Enugu</h4>
             <p>1:00PM</p>
           </div>
-          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
-      </div>
+          <a href="/DriverSide/History/history.html"><img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
+        </div>
     </section>
 
     <section class="payments">
@@ -64,6 +70,32 @@
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="">
+      <ul>
+        <li>
+          <a href="/DriverSide/DriverDashboard/driverDashboard.html">
+            <img src="/DriverSide/RideRequest/asset/home.png" alt="">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/DriverSide/History/history.html">
+            <img src="/DriverSide/RideRequest/asset/history.png" alt="">
+            History
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <img src="/DriverSide/RideRequest/asset/profile.png" alt="">
+            Profile
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
 
   <script src="driverDashboard.js"></script>
 </body>
