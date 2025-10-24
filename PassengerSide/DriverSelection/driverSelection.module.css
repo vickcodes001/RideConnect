@@ -30,7 +30,7 @@ header {
   align-items: center;
 }
 
-.arrow-back {
+.arrow-back img{
   width: 25px;
   transition: transform 0.3s ease-in-out;
 }
