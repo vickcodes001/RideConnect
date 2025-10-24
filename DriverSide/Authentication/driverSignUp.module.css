@@ -1,6 +1,8 @@
 body {
     justify-items: center;
     background-color: #e4e7eb;
+    align-items: center;
+    position: relative;
 }
 
 * {
@@ -8,37 +10,35 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.h2imgdiv {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.maindiv {
+    justify-items: center;
+}
+
+.auxdiv {
+    padding: 15px;
+    border-radius: 7px;
+    height: 5px;
+}
+
+
 input {
     padding: 15px;
     border-radius: 7px;
     height: 5px;
     width: 300px;
     border: 1px solid rgb(123, 182, 123);
-}
-
-.ntorobia {
-    margin: 20px;
-    margin-top: 0%;
-}
-
-button {
-    width: 300px;
-    margin-left: 25px;
-    border-radius: 7px;
-    background-color: green;
-    color: white;
-    width: 330px;
-    padding: 10px;
-    border: none;
-}
-
-.ada {
-    padding: 15px;
-    border-radius: 7px;
-    height: 5px;
-
+    background-color: transparent;
+    transition: border 0.3s ease-in-out;
 
 }
+
 
 hr {
     width: 330px;
@@ -46,26 +46,11 @@ hr {
 
 }
 
-.oti {
+.divp {
     font-size: 14px;
 }
 
-.stt {
-    background-color: blue;
-}
-
-.ude {
-    margin-left: 20px;
-    margin-bottom: 0%;
-
-}
-
-
-.www {
-    justify-items: center;
-}
-
-.dey {
+.divh2 {
     font-weight: bold;
     margin-left: 20px;
     width: 90%;
@@ -79,9 +64,55 @@ img {
 
 }
 
-.weee {
-    display: flex;
-    width: 80%;
+button {
+    border-radius: 0.8rem;
+    color: white;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    margin-bottom: 30px;
+    background-color: #071a39;
+    transition: background 0.3s color 0.3s;
+    justify-content: center;
     align-items: center;
-    padding: 0 50px;
+    text-decoration: none;
+}
+
+
+input:focus {
+    border: 2px solid #7cd04f;
+    outline: none;
+}
+
+button:hover {
+    background: #7cd04f;
+    border: none;
+    outline: none;
+}
+
+form div {
+    position: relative;
+}
+
+
+form div i {
+    position: absolute;
+    padding: 10px;
+
+}
+
+.success-icon {
+    color: green;
+}
+
+.failure-icon,
+.error {
+    color: red;
+}
+
+
+.success-icon,
+.failure-icon {
+    opacity: 0;
+    right: 0;
 }
