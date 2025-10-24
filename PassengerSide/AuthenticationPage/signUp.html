@@ -17,35 +17,41 @@
     <main>
       <p>Enter your details to start riding with RideConnect.</p>
 
-      <form action="submit">
+      <form id="form">
         <div class="field1">
-          <label for="full-name" id="full-name" name="name">Full Name</label>
-          <input type="text" placeholder="e.g. Adanna Eze" required>
+          <label for="full-name">Full Name</label>
+          <input id="full-name" type="text" placeholder="e.g. Adanna Eze">
+          <div class="error"></div>
         </div>
 
         <div class="field2">
-          <label for="email" id="email">Email Address</label>
-          <input type="text" placeholder="you@example.com" required>
+          <label for="email">Email Address</label>
+          <input id="email" type="text" placeholder="you@example.com">
+          <div class="error"></div>
         </div>
 
         <div class="field3">
-          <label for="password" id="password">Password</label>
-          <input type="password" placeholder="Create a strong password" required>
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Create a strong password">
+          <div class="error"></div>
         </div>
 
         <div class="field4">
-          <label for="phone-number" id="phone-number">Phone Number</label>
+          <label for="phone-number">Phone Number</label>
           <div class="field4B">
             <p class="country-code">+234</p>
-            <input type="tel" placeholder="801 234 5678" required>
+            <input id="phone-number" type="tel" placeholder="8012345678">
           </div>
+          <div class="error"></div>
         </div>
 
-        <button type="submit">
-          <a href="/PassengerSide/Verification/verify.html">Sign Up as a Passenger</a>
-        </button>
+        <a href="/PassengerSide/Verification/verify.html">
+          <button type="submit">Sign Up as a Passenger</button>
+        </a>
         <p class="footer">Already have an account? <a href="/Authentication/login.html">Log In</a></p>
       </form>
     </main>
+
+    <script src="signUp.js"></script>
   </body>
 </html>

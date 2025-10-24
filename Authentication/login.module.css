@@ -18,12 +18,12 @@ label {
 
 .firstspan {
   color: #33404c;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .secspan {
   color: rgb(77, 179, 77);
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .divh2 {
@@ -38,7 +38,8 @@ label {
 
 button {
   padding: 10px;
-  width: 325px;
+  width: 20rem;
+  border: none;
   border-radius: 0.4rem;
   background-color: #071a39;
   color: white;
@@ -62,6 +63,8 @@ body {
   justify-items: center;
   width: 350px;
   height: 400px;
+  margin-top: 2rem;
+  font-weight: 600;
   border-radius: 0.4rem;
 }
 

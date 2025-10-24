@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Ride</title>
+    <link rel="stylesheet" href="bookRide.module.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <!-- the parent div -->
+    <div class="parent">
+      <div class="return-home">
+        <a href="../LocationSelectionPage/locationSelection.html"><img src="assets/icons8-left-arrow-50.png" alt="" /></a>
+      </div>
+      <h1 class="heading">Select a ride</h1>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Ride</title>
-  <link rel="stylesheet" href="bookRide.module.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-</head>
+      <!-- <div class="destination-display">
+        <h2 id="current-destination">Destination: Loading...</h2>
+      </div> -->
 
-<body>
-  <!-- the parent div -->
-  <div class="parent">
-    <div class="return-home">
-      <a href=""><img src="assets/icons8-left-arrow-50.png" alt="" /></a>
-    </div>
-    <h1 class="heading">Select a ride</h1>
-
-    <!-- the solo ride section -->
-    <div class="solo-ride">
-      <div class="solo-ride-child">
-        <div class="image1">
-          <img src="assets/icons8-car-24.png" alt="" />
+      <!-- the solo ride section -->
+      <div class="solo-ride" onclick="selectRideType('solo')">
+        <div class="solo-ride-child">
+          <div class="image1">
+            <img src="assets/icons8-car-24.png" alt="" />
+          </div>
+          <div class="solo-ride-content">
+            <p>Just for you</p>
+            <h1>SOLO RIDE</h1>
+          </div>
         </div>
-        <div class="solo-ride-content">
-          <p>Just for you</p>
-          <h1>SOLO RIDE</h1>
-        </div>
+        <h1 id="solo-price">₦</h1>
       </div>
       <h1 class="solo-ride-amount">₦20,000</h1>
     </div>
 
-    <!-- the shared ride section -->
-    <div class="shared-ride">
-      <div class="shared-ride-child">
-        <div class="image2">
-          <img src="assets/icons8-team-50.png" alt="" />
+      <!-- the shared ride section -->
+      <div class="shared-ride" onclick="selectRideType('shared')">
+        <div class="shared-ride-child">
+          <div class="image2">
+            <img src="assets/icons8-team-50.png" alt="" />
+          </div>
+          <div class="shared-ride-content">
+            <p>You and a friend</p>
+            <h1>SHARED RIDE</h1>
+          </div>
         </div>
-        <div class="shared-ride-content">
-          <p>You and a friend</p>
-          <h1>SHARED RIDE</h1>
-        </div>
+        <p class="saved-percent">save 50%</p>
+        <h1 id="shared-price">₦</h1>
       </div>
       <p class="saved-percent">save 50%</p>
       <h1 class="shared-ride-amount">₦10,000</h1>
     </div>
 
-    <!-- the cost comparison section -->
-    <section class="cost-com">
-      <h2>Cost comparison</h2>
-      <div class="cost-com-calc">
-        <div class="solo-amount-div">
-          <p>Solo ride</p>
-          <p>₦20,000</p>
-        </div>
-        <div class="shared-amount-div">
-          <p>Shared ride</p>
-          <p>₦10,000</p>
+      <!-- the cost comparison section -->
+      <section class="cost-com">
+        <h2>Cost comparison</h2>
+        <div class="cost-com-calc">
+          <div class="solo-amount-div">
+            <p>Solo ride</p>
+            <p id="comparison-solo">₦</p>
+          </div>
+          <div class="shared-amount-div">
+            <p>Shared ride</p>
+            <p id="comparison-shared">₦</p>
+          </div>
+          <div class="saved-amount-div">
+            <p>Saved amount</p>
+            <p id="saved-amount">₦</p>
+          </div>
         </div>
         <div class="saved-amount-div">
           <p>Saved amount</p>
@@ -66,11 +77,11 @@
         </div>
       </div>
 
-      <!-- the summit button/ -->
-      <a href="../DriverSelection/driverSelection.html" class="confirm-ride">Confirm Ride</a>
-    </section>
-  </div>
-
-</body>
-
+        <!-- the summit button -->
+        <a href="../DriverSelection/driverSelection.html" class="confirm-ride" id="confirm-ride">Confirm Ride</a>
+      </section>
+    </div>
+    
+    <script src="bookRide.js"></script>
+  </body>
 </html>
