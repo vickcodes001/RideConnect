@@ -108,6 +108,15 @@ form div {
   position: relative;
 }
 
+form div i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
 body {
   position: relative;
 }
