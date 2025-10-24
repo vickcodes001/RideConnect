@@ -173,6 +173,7 @@ input:focus {
 }
 
 .field4B input {
+  width: 90%;
   border: none;
 }
 
