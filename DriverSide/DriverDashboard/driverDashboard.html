@@ -9,7 +9,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -24,34 +26,33 @@
     </div>
 
     <!--Popup overlay-->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
     <!-- pop-up for ride request -->
-     <div class="passengers-card">
-            <div class="first-section">
-                <div>
-                    <img
-                        src="/PassengerSide/DriverSelection/assets/profile-pic.jpg"
-                        alt="passenger picture"
-                        class="passenger-card-img"
-                    />
-                </div>
-                <div class="first-passenger-details">
-                    <h5>Jiggy</h5>
-                    <div class="passenger-details">
-                        <p>GRA</p>
-                        <p>N4,500</p>
-                        <p>[Shared ride]</p>
-                    </div>
-                </div>
-            </div>
-          <!--  -->
-          <div class="second-section">
-            <div class="decision-btn">
-              <button>Decline</button>
-              <button>Accept</button>
-            </div>
+    <div class="passengers-card">
+      <div class="first-section">
+        <div>
+          <img src="/PassengerSide/DriverSelection/assets/profile-pic.jpg" alt="passenger picture" width="90"
+            class="passenger-card-img" />
+        </div>
+        <div class="first-passenger-details">
+          <h5>Jiggy</h5>
+          <div class="passenger-details">
+            <p>GRA</p>
+            <p>N4,500</p>
+            <p>[Shared ride]</p>
           </div>
         </div>
+      </div>
+
+      <div class="second-section">
+        <div class="decision-btn">
+          <button>Decline</button>
+          <button>Accept</button>
         </div>
+      </div>
+    </div>
+    </div>
   </header>
 
   <main class="container">
@@ -73,7 +74,8 @@
             <h4>Polo Park Mall, GRA, Enugu</h4>
             <p>12:30PM</p>
           </div>
-          <a href="/DriverSide/History/history.html"><img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
+          <a href="/DriverSide/History/history.html"><img
+              src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
         </div>
       </div>
 
@@ -83,7 +85,8 @@
             <h4>Akanu Ibiam Intl Airport, Emene, Enugu</h4>
             <p>1:00PM</p>
           </div>
-          <a href="/DriverSide/History/history.html"><img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
+          <a href="/DriverSide/History/history.html"><img
+              src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
         </div>
     </section>
 
@@ -128,4 +131,5 @@
 
   <script src="driverDashboard.js"></script>
 </body>
+
 </html>
