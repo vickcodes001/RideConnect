@@ -1,153 +1,278 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    color: #33404c;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #33404c;
 }
+
 body {
-    background: #e4e7eb;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+  background: #e4e7eb;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
+
+/* Parent div */
 .parent {
-    max-width: 500px;
-}
-.return-home img{
-    width: 2rem;
-    margin: 1rem;
-    margin-bottom: 0;
-}
-.heading {
-    text-align: center;
-    font-weight: 600;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  background: #e4e7eb;
 }
 
-/* the solo ride section */
+/* Header */
+header {
+  width: 100%;
+}
+
+.return-home {
+  position: absolute;
+  left: 1rem;
+  top: 1.2rem;
+}
+
+.return-home img {
+  width: 25px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.return-home img:hover {
+  transform: scale(1.1);
+}
+
+.h-div {
+  padding: 1rem;
+  position: relative;
+}
+
+.h-div h2 {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+/* Ride containers */
 .solo-ride {
-    display: flex;
-    justify-content: space-between;
-    background: white;
-    border: 0.1rem solid #071a39;
-    margin: 1rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #071a39;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: border 0.3s ease-in-out;
 }
-.solo-ride:hover {
-    border: 0.12rem solid #7cd04f;
-}
-.solo-ride-child {
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: 1rem;
-}
-.image1 img {
-    width: 2rem;
-}
-.solo-ride-content h1 {
-    font-weight: 400;
-    font-size: 20px;
-}
-.solo-ride-content p {
-    font-size: 12px;
-}
-#solo-ride-amount {
-    font-weight: 500;
-    font-size: 25px;
+.shared-ride {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #071a39;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: border 0.3s ease-in-out;
+  position: relative;
 }
 
-/* the shared ride section */
-.shared-ride {
-    display: flex;
-    justify-content: space-between;
-    background: white;
-    border: 0.1rem solid #071a39;
-    margin: 1rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    position: relative;
-}
+.solo-ride:hover,
 .shared-ride:hover {
-    border: 0.12rem solid #7cd04f;
+  border-color: #7cd04f;
 }
-.saved-percent {
-    font-size: 12px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0.3rem;
-    background: #071a39;
-    color: white;
-    border-top-right-radius: 0.85rem;
-    border-bottom-left-radius: 1rem;
-}
+
+.solo-ride-child,
 .shared-ride-child {
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+
+.image1 img,
 .image2 img {
-    width: 2rem;
+  width: 2rem;
+  height: auto;
 }
+.solo-ride-content, 
+.shared-ride-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.solo-ride-content h1,
 .shared-ride-content h1 {
-    font-weight: 400;
-    font-size: 20px;
+  font-weight: 500;
+  font-size: 1.25rem;
 }
+
+.solo-ride-content p,
 .shared-ride-content p {
-    font-size: 12px;
+  font-size: 0.9rem;
+  color: #555;
 }
-#shared-ride-amount {
-    font-weight: 500;
-    font-size: 25px;
-    padding: 1rem 0;
+
+/* Price */
+#solo-price,
+#shared-price {
+  display: flex;
+  align-items: center;       /* ✅ centers the ₦ amount vertically */
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #071a39;
+  min-width: 70px;
 }
-/* the cost comparison section*/
+
+/* Saved Tag */
+.saved-percent {
+  font-size: 0.8rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.3rem 0.5rem;
+  background: #071a39;
+  color: white;
+  border-top-right-radius: 0.85rem;
+  border-bottom-left-radius: 1rem;
+}
+
+/* Cost Comparison Section */
 .cost-com {
-    display: grid;
-    margin: 1rem;
-    margin-top: 3rem;
+  display: grid;
+  margin: 1rem;
+  margin-top: 3rem;
 }
+
 .cost-com h2 {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
 }
+
 .cost-com-calc {
-    background: white;
-    border: 0.1rem solid #071a39;
-    padding: 1.5rem;
-    border-radius: 1rem;
+  background: white;
+  border: 1.5px solid #071a39;
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
-.solo-amount-div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-}
-.shared-amount-div {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 0.1rem solid #e4e7eb;
-}
+
+.solo-amount-div,
+.shared-amount-div,
 .saved-amount-div {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
 }
-/* summit button */
-.confirm-ride{
-    background: #071a39;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border-radius: 3rem;
+
+.shared-amount-div {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e4e7eb;
 }
+
+/* Confirm Button */
+.confirm-ride {
+  background: #071a39;
+  margin: 2rem 0;
+  padding: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2rem;
+  display: block;
+  width: 100%;
+  transition: background 0.3s ease-in-out;
+}
+
 .confirm-ride:hover {
-    background: #7cd04f;
+  background: #7cd04f;
+  color: #071a39;
+}
+
+/* RESPONSIVENESS */
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .h-div h2 {
+    font-size: 1.1rem;
+  }
+
+  .solo-ride,
+  .shared-ride {
+    text-align: left;
+    padding: 1rem;
+  }
+
+  .solo-ride-child,
+  .shared-ride-child {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  #solo-price,
+  #shared-price {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .cost-com-calc {
+    padding: 1rem;
+  }
+
+  .confirm-ride {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .saved-percent {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .parent {
+    max-width: 600px;
+  }
+
+  .solo-ride,
+  .shared-ride {
+    padding: 1.5rem;
+  }
+
+  .solo-ride-content h1,
+  .shared-ride-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .confirm-ride {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens (≥769px) */
+@media (min-width: 769px) {
+  body {
+    justify-content: center;
+  }
+
+  .parent {
+    max-width: 700px;
+  }
+
+  .h-div h2 {
+    font-size: 1.5rem;
+  }
+
+  .solo-ride-content h1,
+  .shared-ride-content h1 {
+    font-size: 1.4rem;
+  }
+
+  #solo-price,
+  #shared-price {
+    font-size: 1.6rem;
+  }
 }
