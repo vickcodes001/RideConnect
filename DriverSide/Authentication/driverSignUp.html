@@ -9,78 +9,183 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e7d97cef6c.js" crossorigin="anonymous"></script>
 </head>
 
 
 
 <body>
-    <div>
-        <div class="www">
-            <div class="weee">
+    <form class="form" id="form">
+        <div>
+            <div class="maindiv">
+                <div class="h2imgdiv">
+                    <div>
+                        <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/app-icons/arrow-back-outline-pucd7naolvdt1kk8nmj97.png/arrow-back-outline-ylprt65t1asuys5vyd38x.png?_a=DATAg1AAZAA0"
+                            alt="">
+                    </div>
+                    <div class="divh2">
+                        <h2>Sign Up as Driver</H2>
+                    </div>
+                </div>
+                <div class="divp">
+                    <p>Enter your details to start driving with Rideconnect </p>
+                </div>
+
+                <!-- /**
+                    * ! fullname input here  
+                **/ -->
+
                 <div>
-                    <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/app-icons/arrow-back-outline-pucd7naolvdt1kk8nmj97.png/arrow-back-outline-ylprt65t1asuys5vyd38x.png?_a=DATAg1AAZAA0"
-                        alt="">
+                    <label for="FullName">Full Name</label><br>
+                    <!-- <i class="fa-solid fa-user"></i> -->
+                    <input type="name" placeholder="e.g Chinedu okoro" id="fullname">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
                 </div>
-                <div class="dey">
-                    <h2>Sign Up as Driver</H2>
+
+                <!-- /**
+                    * ! Email input here  
+                **/ -->
+
+                <div>
+                    <label for="Email Address">Email Address</label><br>
+                    <!-- <i class="fa-solid fa-envelope"></i> -->
+                    <input type="email" placeholder="you@example.com" id="email">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
                 </div>
-            </div>
-            <div class="oti">
-                <p>Enter your details to start driving with Rideconnect </p>
-            </div>
-            <div class="ntorobia">
-                <label>Full Name</label><br>
-                <input type="name" placeholder="e.g Chinedu okoro"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Email Address</label><br>
-                <input type="email" placeholder="you@example.com"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Password</label><br>
-                <input type="password" placeholder="Create a strong password"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Phone Number</label><br>
-                <input type="number" placeholder="8012345678"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Driver's License number</label><br>
-                <input type="text" placeholder="Enter your license number"><br>
-            </div>
-        </div>
-        <hr>
+
+                <!-- /**
+                    * ! password input here  
+                **/ -->
 
 
-        <div class="ada">
-            <div class="ude">
-                <h3>Vehicle Details</h3><br>
+                <div>
+                    <label for="Password">Password</label><br>
+                    <!-- <i class="fa-solid fa-lock"></i> -->
+                    <input type="password" placeholder="Create a strong password" id="password">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+                <!-- /**
+                    * ! phone number input here  
+                **/ -->
+                <div>
+                    <label for="Phone Number">Phone Number</label><br>
+                    <input type="tel" placeholder="+234 801 234 5678" id="phonenumber">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+
+                <!-- /**
+                    * ! driver's license number input here  
+                **/ -->
+
+
+                <div>
+                    <label for="Driver's License number">Driver's License number</label><br>
+                    <input type="text" placeholder="Enter your license number" id="text">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
             </div>
-            <div class="ntorobia">
-                <label>Vehicle Make</label><br>
-                <input type="text" placeholder="e.g Toyota"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Vehicle Model</label><br>
-                <input type="text" placeholder="e.g Camry"><br>
-            </div>
-            <div class="ntorobia">
-                <label>year</label><br>
-                <input type="text" placeholder="e.g 2022"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Color</label><br>
-                <input type="text" placeholder="e.g Silver"><br>
-            </div>
-            <div class="ntorobia">
-                <label>Vehicle License Plate</label><br>
-                <input type="text" placeholder="e.g ENU-123AB"><br>
-            </div>
-            <div>
-                <button>Sign Up as Driver</button>
+            <hr>
+
+
+            <div class="auxdiv">
+                <div class="divh3">
+                    <h3>Vehicle Details</h3><br>
+                </div>
+
+
+
+                <!-- /**
+                    * ! vehicle input here  
+                **/ -->
+
+
+                <div>
+                    <label for="Vehicle Make">Vehicle Make</label><br>
+                    <input type="text" placeholder="e.g Toyota" id="vehicle">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+
+
+
+                <!-- /**
+                    * ! model input here  
+                **/ -->
+
+
+                <div>
+                    <label for="Vehicle Model">Vehicle Model</label><br>
+                    <input type="text" placeholder="e.g Camry" id="model">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+
+
+
+                <!-- /**
+                    * ! year input here  
+                **/ -->
+
+
+
+                <div>
+                    <label for="year">year</label><br>
+                    <input type="text" placeholder="e.g 2022" id="year">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+
+
+                <!-- /**
+                    * ! Color input here  
+                **/ -->
+
+
+
+                <div>
+                    <label for="Color">Color</label><br>
+                    <input type="text" placeholder="e.g Silver" id="color">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+
+
+
+                <!-- /**
+                    * ! Vlp input here  
+                **/ -->
+
+
+
+                <div>
+                    <label for="Vehicle License Plate">Vehicle License Plate</label><br>
+                    <input type="text" placeholder="e.g ENU-123AB" id="license">
+                    <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div><br>
+                </div>
+                <div>
+                    <button type="submit" id="submit">submit</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+
+    <script src="driverSignUp.js"></script>
 </body>
 
 
