@@ -64,7 +64,7 @@ const validateInputs = function() {
 
 // error for the input fields 
 const setError = function(element, message) {
-  const field = element.parentElement;
+  const field = element.closest('.field1, .field2, .field3, .field4');
   const errorDisplay = field.querySelector('.error');
 
   errorDisplay.innerText = message;
@@ -79,7 +79,7 @@ const setError = function(element, message) {
 
 // success for input fields
 const setSuccess = function(element) {
-  const field = element.parentElement;
+  const field = element.closest('.field1, .field2, .field3, .field4');
   const errorDisplay = field.querySelector('.error');
   
   errorDisplay.innerText = '';
