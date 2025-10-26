@@ -3,45 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Ride - </title>
+    <title>Book Ride</title>
     <link rel="stylesheet" href="bookRide.module.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- the parent div -->
     <div class="parent">
-
       <header>
         <div class="h-div">
           <div class="return-home">
-            <a href="../LocationSelectionPage/locationSelection.html"><img src="/asset/arrow-back.png" alt="" /></a>
+            <a href="../LocationSelectionPage/locationSelection.html"
+              ><img src="/asset/arrow-back.png" alt="Back"
+            /></a>
           </div>
           <h2 class="heading">Select a ride</h2>
         </div>
       </header>
 
-      <!-- the solo ride section -->
       <div class="solo-ride" onclick="selectRideType('solo')">
         <div class="solo-ride-child">
           <div class="image1">
-            <img src="assets/icons8-car-24.png" alt="" />
+            <img src="assets/icons8-car-24.png" alt="Solo ride" />
           </div>
           <div class="solo-ride-content">
             <p>Just for you</p>
             <h1>SOLO RIDE</h1>
           </div>
         </div>
-        <h1 id="solo-price">₦</h1>
+        <h1 id="solo-price">₦3,500</h1>
       </div>
-      <h1 class="solo-ride-amount">₦20,000</h1>
-    </div>
-
-      <!-- the shared ride section -->
       <div class="shared-ride" onclick="selectRideType('shared')">
         <div class="shared-ride-child">
           <div class="image2">
-            <img src="assets/icons8-team-50.png" alt="" />
+            <img src="assets/icons8-team-50.png" alt="Shared ride" />
           </div>
           <div class="shared-ride-content">
             <p>You and a friend</p>
@@ -49,40 +46,32 @@
           </div>
         </div>
         <p class="saved-percent">save 50%</p>
-        <h1 id="shared-price">₦</h1>
+        <h1 id="shared-price">₦2,500</h1>
       </div>
-      <p class="saved-percent">save 50%</p>
-      <h1 class="shared-ride-amount">₦10,000</h1>
-    </div>
-
-      <!-- the cost comparison section -->
       <section class="cost-com">
         <h2>Cost comparison</h2>
         <div class="cost-com-calc">
           <div class="solo-amount-div">
             <p>Solo ride</p>
-            <p id="comparison-solo">₦</p>
+            <p id="comparison-solo">₦3,500</p>
           </div>
           <div class="shared-amount-div">
             <p>Shared ride</p>
-            <p id="comparison-shared">₦</p>
+            <p id="comparison-shared">₦2,500</p>
           </div>
           <div class="saved-amount-div">
             <p>Saved amount</p>
-            <p id="saved-amount">₦</p>
+            <p id="saved-amount">₦1,000</p>
           </div>
         </div>
-        <div class="saved-amount-div">
-          <p>Saved amount</p>
-          <p>₦10,000</p>
-        </div>
-      </div>
-
-        <!-- the summit button -->
-        <a href="../DriverSelection/driverSelection.html" class="confirm-ride" id="confirm-ride">Confirm Ride</a>
       </section>
+      <a
+        href="../DriverSelection/driverSelection.html"
+        class="confirm-ride"
+        id="confirm-ride"
+        >Confirm Ride</a
+      >
     </div>
-    
     <script src="bookRide.js"></script>
   </body>
 </html>
