@@ -1,11 +1,44 @@
 const confirmBtn = document.getElementById("confirmBtn");
+const buttons = document.querySelectorAll(".dec-btn");
+const cards = document.querySelectorAll(".driver-card");
 
-// confirmBtn.style.background = "red";
 
-confirmBtn.addEventListener("click", () => {
-  console.log("this was clicked");
-  window.location.href = "../DriverAssigned/driverassigned.html";
+// loop through the buttons to see the selected button
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    console.log("clicked");
+    
+  });
 });
+
+// select a driver and show the selected driver in the next page
+cards.forEach((card) => {
+  const acceptBtn = card.querySelector(".dec-btn");
+
+  acceptBtn.addEventListener("click", () => {
+    const name = card.querySelector("h5").innerText;
+    const car = card.querySelector(".car-details p").innerText;
+    const plate = card.querySelector(".car-details p:last-child").innerText;
+    const image = card.querySelector(".driver-card-img").src; 
+    const rating = card.querySelector(".ratings p").innerText
+    
+    const selectedDriver = { name, car, plate, image, rating };
+    console.log("selected driver", selectedDriver);
+    
+    
+    localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
+    
+    confirmBtn.addEventListener("click", () => {
+      window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
+    });
+  });
+});
+
+
+
+// this is to get the availablel drivers from the backend make the driver selected show in the next page
 
 // // 1. Create an object
 // const users = {

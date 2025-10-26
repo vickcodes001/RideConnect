@@ -5,12 +5,20 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  width: clamp(100%, 100vw, 1000px);
+}
+
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
 }
 
 header {
@@ -36,6 +44,7 @@ header h2 {
 
 .h-div {
   display: flex;
+  justify-content: space-between;
   gap: 70px;
   align-items: center;
 }
@@ -147,6 +156,8 @@ footer {
   visibility: hidden;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
   z-index: 2;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
 }
 
 .modal-overlay.active {
@@ -156,20 +167,21 @@ footer {
 
 /* Cancel Modal */
 .cancel-modal {
-  /* display: block; */
   background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 0 0;
-  height: 400px;
+  height: 50%;
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
   opacity: 0;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
   visibility: hidden;
   transform: translateY(100%);
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
-  transform 0.4s ease-out;
+    transform 0.4s ease-out;
   z-index: 3;
 }
 
@@ -194,9 +206,6 @@ footer {
 }
 
 .cancel-modal-container .first-section .cancel-icon {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   position: absolute;
   top: 89px;
   height: 70px;
@@ -224,7 +233,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+  width: clamp(320px, 70vw, 700px);
 }
 
 .cancel-modal-container .cancel-opt-btn button {
@@ -249,17 +258,18 @@ footer {
   background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 0 0;
-  height: 500px;
+  height: 50%;
+  width: clamp(90%, 100vw, 1000px);
   position: fixed;
   bottom: 0;
-  right: 0;
-  left: 0;
   opacity: 0;
   visibility: hidden;
   transform: translateY(100%);
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
     transform 0.4s ease-out;
-    z-index: 3;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
+  z-index: 3;
 }
 
 .modal.active {
@@ -356,7 +366,7 @@ footer {
 .second-section button,
 .another-ride-link {
   height: 50px;
-  width: 100%;
+  width: clamp(320px, 70vw, 700px);
   border: none;
   border-radius: 10px;
 }

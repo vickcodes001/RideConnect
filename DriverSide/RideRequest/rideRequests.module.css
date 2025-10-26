@@ -160,13 +160,22 @@ ul {
     list-style: none;
 }
 
-ul li a{
+.nav-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
     text-decoration: none;
     font-size: 12px;
+    color: gray;
+}
+
+.nav-link.active {
+  color: green;
+}
+
+.nav-link.active img {
+ filter: hue-rotate(90deg); 
 }
 
 footer img {
