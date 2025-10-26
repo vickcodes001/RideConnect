@@ -8,17 +8,18 @@
 
 body {
   background: #e4e7eb;
-  display: flex;
-  justify-content: center;
   min-height: 100vh;
+
+  display: grid;
+  justify-content: center;
+  padding: 1rem; 
 }
 
 /* Parent div */
 .parent {
-  width: 100%;
+  width: 100vw;
   max-width: 500px;
   position: relative;
-  background: #e4e7eb;
 }
 
 /* Header */
@@ -47,32 +48,26 @@ header {
 }
 
 .h-div h2 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
 /* Ride containers */
-.solo-ride {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  border: 1.5px solid #071a39;
-  margin: 1rem;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  transition: border 0.3s ease-in-out;
-}
+.solo-ride,
 .shared-ride {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
   border: 1.5px solid #071a39;
-  margin: 1rem;
-  padding: 1.5rem;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem; 
   border-radius: 1rem;
   transition: border 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.shared-ride {
   position: relative;
 }
 
@@ -93,11 +88,11 @@ header {
   width: 2rem;
   height: auto;
 }
-.solo-ride-content, 
+.solo-ride-content,
 .shared-ride-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .solo-ride-content h1,
@@ -116,17 +111,17 @@ header {
 #solo-price,
 #shared-price {
   display: flex;
-  align-items: center;       /* ✅ centers the ₦ amount vertically */
+  align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #071a39;
   min-width: 70px;
 }
 
 /* Saved Tag */
 .saved-percent {
-  font-size: 0.8rem;
+  font-size: 0.7rem; 
   position: absolute;
   right: 0;
   top: 0;
@@ -152,7 +147,7 @@ header {
 .cost-com-calc {
   background: white;
   border: 1.5px solid #071a39;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 1rem;
 }
 
@@ -173,8 +168,8 @@ header {
 /* Confirm Button */
 .confirm-ride {
   background: #071a39;
-  margin: 2rem 0;
-  padding: 1.2rem;
+  margin: 2rem 1rem;
+  padding: 1rem;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -182,8 +177,9 @@ header {
   letter-spacing: 0.5px;
   border-radius: 2rem;
   display: block;
-  width: 100%;
+  width: calc(100% - 2rem);
   transition: background 0.3s ease-in-out;
+  font-size: 0.9rem;
 }
 
 .confirm-ride:hover {
@@ -193,46 +189,7 @@ header {
 
 /* RESPONSIVENESS */
 
-/* Mobile (≤480px) */
-@media (max-width: 480px) {
-  .h-div h2 {
-    font-size: 1.1rem;
-  }
-
-  .solo-ride,
-  .shared-ride {
-    text-align: left;
-    padding: 1rem;
-  }
-
-  .solo-ride-child,
-  .shared-ride-child {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  #solo-price,
-  #shared-price {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-  }
-
-  .cost-com-calc {
-    padding: 1rem;
-  }
-
-  .confirm-ride {
-    font-size: 0.9rem;
-    padding: 1rem;
-  }
-
-  .saved-percent {
-    font-size: 0.7rem;
-  }
-}
-
-/* Tablets (481px–768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) {
   .parent {
     max-width: 600px;
   }
@@ -240,6 +197,11 @@ header {
   .solo-ride,
   .shared-ride {
     padding: 1.5rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .cost-com {
+    margin: 3rem 0 1rem 0;
   }
 
   .solo-ride-content h1,
@@ -249,15 +211,22 @@ header {
 
   .confirm-ride {
     font-size: 1rem;
+    padding: 1.2rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .saved-percent {
+    font-size: 0.8rem;
+  }
+
+  .cost-com-calc {
+    padding: 1.5rem;
   }
 }
 
-/* Large screens (≥769px) */
-@media (min-width: 769px) {
-  body {
-    justify-content: center;
-  }
 
+@media (min-width: 769px) {
   .parent {
     max-width: 700px;
   }
