@@ -22,7 +22,7 @@ p {
   flex-direction: column;
   gap: 20px;
   position: relative;
-  width: clamp(390px, 100vw, 1000px);
+  width: clamp(300px, 100vw, 1000px);
   margin: 0 auto;
 }
 
@@ -47,7 +47,7 @@ header {
 }
 
 header h2 {
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 
 main {
@@ -55,6 +55,8 @@ main {
   flex-direction: column;
   gap: 20px;
   padding: 20px 20px 120px 20px;
+  width: clamp(200px, 100vw, 1000px);
+  margin: 0 auto;
 }
 
 .driver-card {
@@ -101,7 +103,10 @@ main {
 .decision-btn {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  width: clamp(200px, 70vw, 100%);
+  margin: 0 auto;
+  /* gap: 10px; */
+  /* border: 2px solid red; */
 }
 
 .decision-btn button {
@@ -137,7 +142,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(390px, 100vw, 1000px);
+  width: clamp(300px, 100vw, 1000px);
   margin: 0 auto;
   padding: 20px;
   border-top: 1px solid lightgrey;
@@ -153,6 +158,7 @@ footer button {
   padding: 7px 40px;
   font-size: 14px;
   border: none;
+  cursor: pointer;
   border-radius: 5px;
   background: #071a39;
   color: white;
