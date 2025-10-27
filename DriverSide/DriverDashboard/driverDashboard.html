@@ -15,119 +15,105 @@
 </head>
 
 <body>
-  <header>
-    <div class="header_text">
-      <h1>GoodMorning, John</h1>
-      <p>Ready for your next ride?</p>
-    </div>
-    <div class="notis">
-      <img src="/DriverSide/DriverDashboard/assets/icons8-notification-bell-24.png" alt="" width="40">
-      <div class="notis_show"></div>
-    </div>
-
-    <!--Popup overlay-->
-    <div class="modal-overlay" id="modal-overlay"></div>
-
-    <!-- pop-up for ride request -->
-    <div class="passengers-card">
-      <div class="first-section">
-        <div>
-          <img src="/PassengerSide/DriverSelection/assets/profile-pic.jpg" alt="passenger picture" width="90"
-            class="passenger-card-img" />
+    <div class="parent-container">
+      <header>
+        <div class="header_text">
+          <h1>GoodMorning, John</h1>
+          <p>Ready for your next ride?</p>
         </div>
-        <div class="first-passenger-details">
-          <h5>Jiggy</h5>
-          <div class="passenger-details">
-            <p>GRA</p>
-            <p>N4,500</p>
-            <p>[Shared ride]</p>
+        <div class="notis">
+          <img src="/DriverSide/DriverDashboard/assets/icons8-notification-bell-24.png" alt="" width="40">
+          <div class="notis_show"></div>
+        </div>
+        <!--Popup overlay-->
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <!-- pop-up for ride request -->
+        <div class="ride-request-card">
+          <div class="request-card">
+            <h3>Ride Requests</h3>
+            <div class="passenger-details-general">
+              <img src="/PassengerSide/DriverSelection/assets/profile-pic.jpg" alt="" class="request-card_pfp" width="80">
+              <div class="details-text">
+                <h4>Chukwudi Ibe</h4>
+                <p>GRA - ₦4,500 - [Sharedride]</p>
+              </div>
+              <div class="cta-buttons">
+                <button type="submit">Decline</button>
+                <button type="submit">Accept</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="second-section">
-        <div class="decision-btn">
-          <button>Decline</button>
-          <button>Accept</button>
-        </div>
-      </div>
-    </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="avail_rides">
-      <div class="avail_ridesdiv">
-        <h4>Available for rides</h4>
-        <button class="toggle_switch" id="toggle_switch">
-          <div class="off-circle"></div>
-          <div class="on-circle"></div>
-        </button>
-      </div>
-    </section>
-
-    <section class="ridehistory">
-      <h2>Ride History</h2>
-      <div class="ridehistorydiv1">
-        <div class="ridehistorydiv1_element">
-          <div class="ridehistorydiv1_elementtext">
-            <h4>Polo Park Mall, GRA, Enugu</h4>
-            <p>12:30PM</p>
+      </header>
+      <main class="container">
+        <section class="avail_rides">
+          <div class="avail_ridesdiv">
+            <h4>Available for rides</h4>
+            <button class="toggle_switch" id="toggle_switch">
+              <div class="off-circle"></div>
+              <div class="on-circle"></div>
+            </button>
           </div>
-          <a href="/DriverSide/History/history.html"><img
-              src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
-        </div>
-      </div>
-
-      <div class="ridehistorydiv2">
-        <div class="ridehistorydiv2_element">
-          <div class="ridehistorydiv2_elementtext">
-            <h4>Akanu Ibiam Intl Airport, Emene, Enugu</h4>
-            <p>1:00PM</p>
+        </section>
+        <section class="ridehistory">
+          <h2>Ride History</h2>
+          <div class="ridehistorydiv1">
+            <div class="ridehistorydiv1_element">
+              <div class="ridehistorydiv1_elementtext">
+                <h4>Polo Park Mall, GRA, Enugu</h4>
+                <p>12:30PM</p>
+              </div>
+              <a href="/DriverSide/History/history.html"><img
+                  src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
+            </div>
           </div>
-          <a href="/DriverSide/History/history.html"><img
-              src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
-        </div>
-    </section>
-
-    <section class="payments">
-      <h2>Payments</h2>
-      <div class="payment_container">
-        <div class="payment_containerelement">
-          <div class="payment_containerelementtext">
-            <h4>Manage payment methods</h4>
+          <div class="ridehistorydiv2">
+            <div class="ridehistorydiv2_element">
+              <div class="ridehistorydiv2_elementtext">
+                <h4>Akanu Ibiam Intl Airport, Emene, Enugu</h4>
+                <p>1:00PM</p>
+              </div>
+              <a href="/DriverSide/History/history.html"><img
+                  src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30"></a>
+            </div>
+        </section>
+        <section class="payments">
+          <h2>Payments</h2>
+          <div class="payment_container">
+            <div class="payment_containerelement">
+              <div class="payment_containerelementtext">
+                <h4>Manage payment methods</h4>
+              </div>
+              <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+            </div>
           </div>
-          <img src="/DriverSide/DriverDashboard/assets/icons8-more-than-50.png" alt="" width="30" height="30">
+        </section>
+      </main>
+      <footer>
+        <div class="footer-container">
+          <ul>
+            <li>
+              <a href="/DriverSide/DriverDashboard/driverDashboard.html">
+                <img src="/DriverSide/RideRequest/asset/home.png" alt="">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/DriverSide/History/history.html">
+                <img src="/DriverSide/RideRequest/asset/history.png" alt="">
+                History
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="/DriverSide/RideRequest/asset/profile.png" alt="">
+                Profile
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="">
-      <ul>
-        <li>
-          <a href="/DriverSide/DriverDashboard/driverDashboard.html">
-            <img src="/DriverSide/RideRequest/asset/home.png" alt="">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="/DriverSide/History/history.html">
-            <img src="/DriverSide/RideRequest/asset/history.png" alt="">
-            History
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <img src="/DriverSide/RideRequest/asset/profile.png" alt="">
-            Profile
-          </a>
-        </li>
-      </ul>
+      </footer>
     </div>
-  </footer>
-
 
   <script src="driverDashboard.js"></script>
 </body>

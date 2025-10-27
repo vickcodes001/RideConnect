@@ -8,22 +8,25 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #e4e7eb;
   color: #33404c;
+  margin-bottom: 5rem;
 }
 
-.container_A {
-  width: 90%;
-  max-width: 1200px; 
-  height: 700px;
+.parent-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-left: 15rem;
+  width: 50%;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 header {
   display: flex;
   gap: 2.5rem;
   margin: 1.5rem;
+  margin-top: -5rem;
 }
 
 .header_text {
@@ -48,8 +51,24 @@ header {
   visibility: hidden;
 }
 
-.passengers-card {
+.ride-request-card {
+  background-color: white;
+  width: 30%;
+  padding: 10px;
+  position: relative;
+  visibility: hidden;
+}
 
+.request-card {
+  position: absolute;
+}
+
+.passenger-details-general .request-card-pfp .details-text {
+  display: flex;
+}
+
+.request-card-pfp {
+  border-radius: 100%;
 }
 
 .avail_rides {
@@ -86,7 +105,7 @@ header {
 }
 
 .off-circle {
-  border: 14px solid white;
+  border: 15px solid white;
   border-radius: 100%;
   position: absolute;
   top: 1px;
@@ -98,7 +117,7 @@ header {
 }
 
 .on-circle {
-  border: 14px solid white;
+  border: 15px solid white;
   border-radius: 100%;
   position: absolute;
   top: 1px;
@@ -235,6 +254,7 @@ ul {
     border-top: 1px solid lightgray;
     padding: 15px 50px;
     list-style: none;
+    background-color: white;
 }
 
 ul li a{
@@ -250,7 +270,7 @@ ul li a{
 footer img {
     width: 20px;
 }
-
+/* 
 @media (max-width: 768px) {
   header {
     gap: 20rem;
@@ -284,18 +304,18 @@ footer img {
 }
 
 @media (max-width: 480px) {
-  .container_A {
+  .parent {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media (max-width: 1024px) {
-  .container_A {
+  .parent {
     max-width: 1200px;
   }
 
   header {
     gap: rem;
   }
-}
+} */
