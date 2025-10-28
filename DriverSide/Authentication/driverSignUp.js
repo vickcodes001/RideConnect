@@ -1,80 +1,54 @@
-// Helper functions
-let id = (id) => document.getElementById(id);
-let classes = (classes) => document.getElementsByClassName(classes);
+// Get form and all input fields directly
+const form = document.getElementById("form");
+const fullname = document.getElementById("fullname");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const phonenumber = document.getElementById("phonenumber");
+const text = document.getElementById("text");
+const vehicle = document.getElementById("vehicle");
+const model = document.getElementById("model");
+const year = document.getElementById("year");
+const color = document.getElementById("color");
+const license = document.getElementById("license");
+const errorMsg = document.getElementsByClassName("error");
 
-// Form fields and elements
-let fullname = id("fullname"),
-    email = id("email"),
-    password = id("password"),
-    phonenumber = id("phonenumber"),
-    text = id("text"),
-    vehicle = id("vehicle"),
-    model = id("model"),
-    year = id("year"),
-    color = id("color"),
-    license = id("license"),
-    form = id("form"),
-    errorMsg = classes("error"),
-    successIcon = classes("success-icon"),
-    failureIcon = classes("failure-icon");
+// Validation function
+function validateField(field, index, message) {
+  const value = field.value.trim();
 
-// Validation engine
-let engine = (field, serial, message) => {
-    const value = field.value.trim();
+  // Check for phone number digits only
+  if (field === phonenumber && value && !/^\d+$/.test(value)) {
+    errorMsg[index].innerHTML = "Phone number must contain only digits";
+    errorMsg[index].style.color = "red";
+    return;
+  }
 
-    // Special check for phone number
-    if (field === phonenumber && value && !/^\d+$/.test(value)) {
-        errorMsg[serial].innerHTML = "Phone number must contain only digits";
-        failureIcon[serial].style.opacity = "1";
-        successIcon[serial].style.opacity = "0";
-        return;
-    }
+  // Check for empty input
+  if (value === "") {
+    errorMsg[index].innerHTML = message;
+    errorMsg[index].style.color = "red";
 
-    if (value === "") {
-        errorMsg[serial].innerHTML = message;
-        failureIcon[serial].style.opacity = "1";
-        successIcon[serial].style.opacity = "0";
-
-        // Clear error after 3 seconds
-        setTimeout(() => {
-            errorMsg[serial].innerHTML = "";
-            failureIcon[serial].style.opacity = "0";
-        }, 3000);
-    } else {
-        errorMsg[serial].innerHTML = "";
-        failureIcon[serial].style.opacity = "0";
-        successIcon[serial].style.opacity = "1";
-
-        // Hide success icon after 3 seconds
-        setTimeout(() => {
-            successIcon[serial].style.opacity = "0";
-        }, 3000);
-    }
-};
+    // Clear message after 3 seconds
+    setTimeout(() => {
+      errorMsg[index].innerHTML = "";
+    }, 3000);
+  } else {
+    errorMsg[index].innerHTML = "";
+  }
+}
 
 // Form submit validation
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    engine(fullname, 0, "Fullname cannot be blank");
-    engine(email, 1, "Email cannot be blank");
-    engine(password, 2, "Password cannot be blank");
-    engine(phonenumber, 3, "Phone number cannot be blank");
-    engine(text, 4, "Text cannot be blank");
-    engine(vehicle, 5, "Vehicle cannot be blank");
-    engine(model, 6, "Model cannot be blank");
-    engine(year, 7, "Year cannot be blank");
-    engine(color, 8, "Color cannot be blank");
-    engine(license, 9, "License cannot be blank");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  validateField(fullname, 0, "Full name cannot be blank");
+  validateField(email, 1, "Email cannot be blank");
+  validateField(password, 2, "Password cannot be blank");
+  validateField(phonenumber, 3, "Phone number cannot be blank");
+  validateField(text, 4, "Driver’s license number cannot be blank");
+  validateField(vehicle, 5, "Vehicle make cannot be blank");
+  validateField(model, 6, "Model cannot be blank");
+  validateField(year, 7, "Year cannot be blank");
+  validateField(color, 8, "Color cannot be blank");
+  validateField(license, 9, "License plate cannot be blank");
 });
-
-// Real-time phone number input check
-phonenumber.addEventListener("input", () => {
-    engine(phonenumber, 3, "Phone number cannot be blank");
-});
-
-
-
-
-
-
-

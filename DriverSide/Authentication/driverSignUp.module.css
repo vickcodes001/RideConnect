@@ -1,118 +1,137 @@
-body {
-    justify-items: center;
-    background-color: #e4e7eb;
-    align-items: center;
-    position: relative;
-}
-
 * {
     color: #33404c;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.h2imgdiv {
+body {
+    background-color: #e4e7eb;
+    width: clamp(390px, 100vw, 1000px);
+    margin: auto;
+}
+.heading {
+    margin: 2rem;
+
+    p {
+        text-align: center;
+    }
+}
+
+.h-div {
     display: flex;
-    width: 80%;
     align-items: center;
-    padding: 0 50px;
+    justify-content: center;
+    position: relative;
+
+    h2 {
+        margin-bottom: 0.5rem;
+    }
 }
 
-.maindiv {
-    justify-items: center;
+.return {
+    position: absolute;
+    left: 0;
 }
 
-.auxdiv {
-    padding: 15px;
-    border-radius: 7px;
-    height: 5px;
+.return img {
+    width: 25px;
+    transition: transform 0.3s ease-in-out;
 }
 
+.return img:hover {
+  transform: scale(1.1);
+}
+.parent {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.6rem;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.personal-details {
+    border-bottom: 1px solid #071a39;
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    h4 {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.personal-details div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.vehicle-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.p-d {
+    margin-bottom: 0.5rem;
+}
+.v-d {
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.vehicle-details div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    position: relative; 
+}
+
+.vehicle-details h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
 
 input {
-    padding: 15px;
-    border-radius: 7px;
-    height: 5px;
-    width: 300px;
-    border: 1px solid rgb(123, 182, 123);
     background-color: transparent;
-    transition: border 0.3s ease-in-out;
-
-}
-
-
-hr {
-    width: 330px;
-    border-top: 9px rgb(76, 156, 76);
-
-}
-
-.divp {
-    font-size: 14px;
-}
-
-.divh2 {
-    font-weight: bold;
-    margin-left: 20px;
-    width: 90%;
-    text-align: center;
-    font-size: 14px;
-}
-
-img {
-    height: 20px;
-    width: 20px;
-
-}
-
-button {
-    border-radius: 0.8rem;
-    color: white;
-    width: 100%;
-    padding: 8px;
     border: none;
-    margin-bottom: 30px;
-    background-color: #071a39;
-    transition: background 0.3s color 0.3s;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+    border: 2px solid #071a39;
+    border-radius: 0.4rem;
+    padding: 0.8rem;
+    transition: border 0.3s ease-in-out;
 }
-
 
 input:focus {
     border: 2px solid #7cd04f;
     outline: none;
 }
 
+button {
+    background-color: #071a39;
+    color: white;
+    font-weight: 550;
+    border: none;
+    border: 2px solid #071a39;
+    border-radius: 0.4rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    transition: background 0.3s;
+}
+
 button:hover {
     background: #7cd04f;
     border: none;
-    outline: none;
 }
 
-form div {
-    position: relative;
-}
-
-
-form div i {
-    position: absolute;
-    padding: 10px;
-
-}
-
-.success-icon {
-    color: green;
-}
-
-.failure-icon,
 .error {
-    color: red;
-}
-
-
-.success-icon,
-.failure-icon {
-    opacity: 0;
-    right: 0;
+  font-size: 13px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

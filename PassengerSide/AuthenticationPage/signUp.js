@@ -1,16 +1,8 @@
-// Warning! this code will be mad long because of my wrong doings which I paid for
-
 const form = document.getElementById('form');
 const fullName = document.getElementById('full-name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const phoneNumber = document.getElementById('phone-number');
-
-// Listen for input changes
-// [fullName, email, password, phoneNumber].forEach(function(input){
-//   input.addEventListener('input', () => validateInputs())
-// })
-
 
 form.addEventListener('submit', function(event){
   event.preventDefault();

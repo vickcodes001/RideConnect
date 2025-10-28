@@ -7,6 +7,8 @@
 }
 body {
     background: #e4e7eb;
+    width: clamp(390px, 100vw, 1000px);
+    margin: 0 auto;
 }
 .heading {
     display: flex;

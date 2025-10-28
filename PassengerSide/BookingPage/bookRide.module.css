@@ -8,17 +8,12 @@
 
 body {
   background: #e4e7eb;
-  min-height: 100vh;
-
-  display: grid;
-  justify-content: center;
-  padding: 1rem; 
 }
 
 /* Parent div */
 .parent {
-  width: 100vw;
-  max-width: 500px;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
   position: relative;
 }
 
@@ -185,63 +180,4 @@ header {
 .confirm-ride:hover {
   background: #7cd04f;
   color: #071a39;
-}
-
-/* RESPONSIVENESS */
-
-@media (min-width: 481px) {
-  .parent {
-    max-width: 600px;
-  }
-
-  .solo-ride,
-  .shared-ride {
-    padding: 1.5rem;
-    margin: 0 0 1rem 0;
-  }
-
-  .cost-com {
-    margin: 3rem 0 1rem 0;
-  }
-
-  .solo-ride-content h1,
-  .shared-ride-content h1 {
-    font-size: 1.3rem;
-  }
-
-  .confirm-ride {
-    font-size: 1rem;
-    padding: 1.2rem;
-    margin: 2rem 0;
-    width: 100%;
-  }
-
-  .saved-percent {
-    font-size: 0.8rem;
-  }
-
-  .cost-com-calc {
-    padding: 1.5rem;
-  }
-}
-
-
-@media (min-width: 769px) {
-  .parent {
-    max-width: 700px;
-  }
-
-  .h-div h2 {
-    font-size: 1.5rem;
-  }
-
-  .solo-ride-content h1,
-  .shared-ride-content h1 {
-    font-size: 1.4rem;
-  }
-
-  #solo-price,
-  #shared-price {
-    font-size: 1.6rem;
-  }
 }
