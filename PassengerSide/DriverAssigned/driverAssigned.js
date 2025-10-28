@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cancelModal = document.getElementById("cancel-modal");
   const goBackBtn = document.getElementById("go-back-btn");
   const confirmCancellationBtn = document.getElementById(
-    "confirm-cancellation-btn"
-  );
+    "confirm-cancellation-btn");
 
   // Function to open the modal
   contactDriverBtn.addEventListener("click", function () {

@@ -13,21 +13,20 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
-  /* border: 2px solid #071a39; */
+  overflow: hidden;
 }
 
 header {
   display: flex;
   justify-content: flex-end;
-  margin: 8px;
+  margin:8px;
 }
 
 header a {
   text-decoration: none;
   color: #071a39;
-  /* border: 2px solid #071a39; */
   padding: 10px;
-  margin: 5px;
+  margin: 8px;
   cursor: pointer;
   font-weight: 600;
   transition: background 0.3s text 0.3s;
@@ -35,6 +34,7 @@ header a {
 
 header a:hover {
   background-color: #7cd04f;
+  padding: 5px;
   color: aliceblue;
   padding: 10px;
   border: none;

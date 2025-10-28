@@ -9,6 +9,7 @@ body {
   background-color: #e4e7eb;
   color: #33404c;
   margin-bottom: 5rem;
+  /* overflow: hidden; */
 }
 
 .parent-container {
@@ -16,25 +17,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  max-width: 1200px;
-  height: 100vh;
+  width: clamp(100%, 70vw, 100vw);
   margin: 0 auto;
+  padding: 20px;
 }
 
 header {
   display: flex;
-  gap: 2.5rem;
-  margin: 1.5rem;
-  margin-top: -5rem;
+  justify-content: space-between;
+  width: clamp(300px, 87vw, 1000px);
 }
 
 .header_text {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
 .header_text h1 {
+  font-size: 28px;
   font-weight: 600;
 }
 
@@ -42,37 +42,104 @@ header {
   position: relative;
 }
 
+.notis-bell {
+}
+
 .notis_show {
-  border: 7px solid #7cd04f;
+  border: 4px solid #7cd04f;
   border-radius: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
-.ride-request-card {
-  background-color: white;
-  width: 30%;
-  padding: 10px;
-  position: relative;
-  visibility: hidden;
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.658);
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 2;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
 }
 
-.request-card {
-  position: absolute;
-}
-
-.passenger-details-general .request-card-pfp .details-text {
+.modal-overlay.active {
+  opacity: 1;
   display: flex;
 }
 
-.request-card-pfp {
+.ride-request {
+  position: relative;
+}
+
+.ride-request-card-div {
+  background-color: white;
+  padding: 1rem;
+  padding: 30px 20px;
+  position: absolute;
+  top: 30px;
+  right: -100px;
+  border-radius: 1rem;
+  z-index: 3;
+  display: none;
+}
+
+.ride-request-card-div.active {
+  display: flex;
+}
+
+.ride-request-card h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 20px;
+  margin-bottom: 13px;
+}
+
+.request-card_pfp {
   border-radius: 100%;
+  object-fit: cover;
+  width: 60px;
+  height: 55px;
+}
+
+.passenger-details-general, details-text {
+  margin-left: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem;
+}
+
+.cta-buttons a {
+  border: 2px solid #071a39;
+  border-radius: 5px;
+  padding: 8px;
+  width: 150px;
+  max-width: 150px;
+  text-decoration: none;
+  text-align: center;
+  color: #33404c;
+  border: none;
+}
+
+.decline {
+  background-color: #daf5cc;
+  font-weight: 600;
+}
+
+.accept {
+  background-color: #7cd04f;
+  font-weight: 600;
 }
 
 .avail_rides {
-  width: 90%;
   margin: 0 auto;
   margin-top: 1.5rem;
   background-color: white;
@@ -81,11 +148,13 @@ header {
 
 .avail_ridesdiv {
   display: flex;
-  gap: 8rem;
+  gap: 4rem;
+  padding: 5px;
 }
 
 .avail_ridesdiv h4 {
   margin: 1rem;
+  margin-top: 1.1rem;
   font-weight: 500;
 }
 
@@ -97,7 +166,10 @@ header {
   border: none;
   border-radius: 1rem;
   margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  margin-left: 4.5rem;
   position: relative;
+  z-index: 1;
 }
 
 .toggle_switch.active {
@@ -129,18 +201,21 @@ header {
   visibility: visible;
 }
 
+.ridehistory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .ridehistory h2 {
   font-weight: 500;
-  margin: 1.5rem;
   margin-top: 1.8rem;
 }
 
 .ridehistorydiv1 {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 1.5rem;
   background-color: white;
   border-radius: 0.5rem;
+  line-height: 1.5;
 }
 
 .ridehistorydiv1_elementtext {
@@ -168,11 +243,10 @@ header {
 }
 
 .ridehistorydiv2 {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
   background-color: white;
   border-radius: 0.5rem;
+  line-height: 1.5;
 }
 
 .ridehistorydiv2_elementtext {
@@ -200,14 +274,12 @@ header {
 
 .payments h2 {
   font-weight: 500;
-  margin: 1.5rem;
   margin-top: 1.8rem;
+  padding: 5px;
 }
 
 .payment_container {
-  width: 90%;
   margin: 0 auto;
-  margin-top: -0.5rem;
   background-color: white;
   border-radius: 0.5rem;
 }
@@ -235,14 +307,10 @@ header {
   font-weight: 600;
 }
 
-/* hover for all the icons*/
-/* img {
-  transition: 0.3s ease-in-out;
+footer {
+  width: 100px;
+  max-width: 200px;
 }
-
-img:hover {
-  transform: scale(1.3);
-} */
 
 ul {
     display: flex;
@@ -250,11 +318,12 @@ ul {
     bottom: 0;
     right: 0;
     left: 0;
-    justify-content: space-between;
+    justify-content: center;
     border-top: 1px solid lightgray;
     padding: 15px 50px;
     list-style: none;
-    background-color: white;
+    gap: 5rem;
+    z-index: -1;
 }
 
 ul li a{
@@ -270,52 +339,3 @@ ul li a{
 footer img {
     width: 20px;
 }
-/* 
-@media (max-width: 768px) {
-  header {
-    gap: 20rem;
-  }
-
-  .avail_rides {
-    padding: 20px 30px;
-  }
-
-  .avail_ridesdiv {
-    gap: 23rem;
-  }
-
-  .avail_ridesdiv h4 {
-    margin-left: -1rem;
-  }
-
-  .ridehistory h2 {
-    margin-left: 2.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: -0.5rem;
-  }
-
-  .payments h2 {
-    margin-left: 2.5rem;
-  }
-
-  .payment_container {
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .parent {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 1024px) {
-  .parent {
-    max-width: 1200px;
-  }
-
-  header {
-    gap: rem;
-  }
-} */
