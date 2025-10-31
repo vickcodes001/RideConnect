@@ -67,18 +67,18 @@ input {
 }
 
 .error-message {
-   color: #ff3860;
-  font-size: 13px;
-  height: 13px;
-  margin: 0.3rem;
+    color: #ff3860;
+    font-size: 13px;
+    height: 13px;
+    margin: 0.3rem;
 }
 
 #field-input.error input{
-  border-color: #ff3860;
+    border-color: #ff3860;
 }
 
 #field-input.success input{
-  border-color: #071a39;
+    border-color: #071a39;
 }
 
 button {
