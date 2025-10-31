@@ -57,7 +57,7 @@ header {
   border: 1.5px solid #071a39;
   margin: 0 1rem 1rem 1rem;
   padding: 1rem; 
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   transition: border 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -90,8 +90,8 @@ header {
   justify-content: center;
 }
 
-.solo-ride-content h1,
-.shared-ride-content h1 {
+.solo-ride-content h2,
+.shared-ride-content h2 {
   font-weight: 500;
   font-size: 1.25rem;
 }
@@ -114,19 +114,6 @@ header {
   min-width: 70px;
 }
 
-/* Saved Tag */
-.saved-percent {
-  font-size: 0.7rem; 
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0.3rem 0.5rem;
-  background: #071a39;
-  color: white;
-  border-top-right-radius: 0.85rem;
-  border-bottom-left-radius: 1rem;
-}
-
 /* Cost Comparison Section */
 .cost-com {
   display: grid;
@@ -134,16 +121,15 @@ header {
   margin-top: 3rem;
 }
 
-.cost-com h2 {
+.cost-com h4 {
   margin-bottom: 0.8rem;
-  font-size: 1.2rem;
 }
 
 .cost-com-calc {
   background: white;
   border: 1.5px solid #071a39;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
 }
 
 .solo-amount-div,
@@ -157,7 +143,7 @@ header {
 
 .shared-amount-div {
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e4e7eb;
+  border-bottom: 1px solid #ced2d6;
 }
 
 /* Confirm Button */
@@ -170,7 +156,7 @@ header {
   color: white;
   font-weight: 600;
   letter-spacing: 0.5px;
-  border-radius: 2rem;
+  border-radius: 0.4rem;
   display: block;
   width: calc(100% - 2rem);
   transition: background 0.3s ease-in-out;
@@ -179,5 +165,4 @@ header {
 
 .confirm-ride:hover {
   background: #7cd04f;
-  color: #071a39;
 }

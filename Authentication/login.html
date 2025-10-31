@@ -5,74 +5,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Log In to RideConnect</title>
-  <link rel="stylesheet" href="login.module.css" />
+  <link rel="stylesheet" href="login.module.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-
-
 </head>
-
 <body>
 
-  <form class="form" id="form">
-    <div>
-      <div class="firstdiv">
-        <div class="divh2">
-          <h2> <span class="firstspan">Ride</span><span class="secspan">Connect</span>
-          </h2>
-        </div>
-        <div class="divspan">
-          <span>Turning Journeys Into Shared Experiences</span>
-        </div>
+  <div class="heading">
+    <div class="h-div">
+      <a href="" class="return">
+        <img src="/asset/arrow-back.png" alt="">
+      </a>
+      <div class="logo">
+        <img src="/asset/logo.png" alt="">
       </div>
-
-      <div class="secdiv">
-        <div class="subdiv">
-          <H2>Login to your account</H2>
-        </div>
-
-        <!-- /**
-         * ! phone number input here  
-      **/ -->
-
-        <div>
-          <label for="Phone Number">Phone Number</label><br>
-          <input type="text" placeholder="+234 801 2345 678" id="phonenumber">
-          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-          <i class="far fa-check-circle    success-icon"></i>
-          <div class="error"></div><br>
-        </div>
-
-
-        <!-- /**
-         * ! password input here  
-      **/ -->
-
-
-        <div>
-          <label for="password">Password</label><br>
-          <input type="password" placeholder="Enter your password" id="password">
-          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-          <div class="error"></div><br>
-        </div>
-
-        <div class="anchor">
-          <a href="">
-            <span>Forgot password?</span>
-          </a>
-        </div>
-        <div>
-          <a href="../PassengerSide/LocationSelectionPage/locationSelection.html"><button>Login</button></a>
-        </div>
-      </div>
-
     </div>
-  </form>
+    <p>Turning Journeys Into Shared Experiences</p>
+  </div>
+
+  <div class="parent">
+    <form id="form">
+      <h4>Login to your account</h4>
+
+          <div class="field-input">
+            <label for="Phone Number">Phone Number</label><br>
+            <input type="text" placeholder="+234 801 2345 678" id="phonenumber">
+            <div class="error-message"></div><br>
+          </div>
+          
+          <div class="field-input">
+            <label for="password">Password</label><br>
+            <input type="password" placeholder="Enter your password" id="password">
+            <div class="error-message"></div><br>
+          </div>
+
+        <a href="" class="forget-password">
+          <p>Forget Password</p>
+        </a>
+      <div class="login">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
 
   <script src="login.js"></script>
-</body>
-
 </body>
 </html>

@@ -12,7 +12,7 @@ body {
 }
 .heading {
     display: flex;
-    margin: 2rem;
+    margin: 1rem;
     gap: 4rem;
 }
 .return-home img{
@@ -27,7 +27,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 .location-image {
     background: #071a39;
@@ -63,22 +63,47 @@ form input {
     padding-left: 2.5rem;
 }
 
-.desti {
-    margin-left: 1rem;
-    font-weight: 500; 
+.desti-container {
+    background: white;
+    border-radius: 0.4rem;
+    margin: 0 1rem 1rem 1rem;
+    padding: 1rem;
+    border: 0.12rem solid #071a39;
+    height: 40rem;
+    overflow-y: scroll;
 }
+
+.desti-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.desti-container::-webkit-scrollbar-track {
+    background: #e4e7eb;
+    border-radius: 10px;
+}
+
+.desti-container::-webkit-scrollbar-thumb {
+    background: #071a39;
+    border-radius: 10px;
+}
+
 .places {
     display: flex;
-    margin: 2rem;
-    gap: 2rem;
+    padding: 1rem;
+    gap: 1rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
-.places img {
-    width: 1.5rem;
+.places:hover {
+    border: 0.12rem solid #28a745;
+    border-radius: 0.4rem;
 }
-.price-indicator {
-    font-size: 12px;
-    color: #28a745;
-    font-weight: 500;
-    margin-left: auto;
+
+.location-icon {
+    display: flex;
+    align-items: center;
+}
+.location-icon img {
+    width: 1rem;
 }
