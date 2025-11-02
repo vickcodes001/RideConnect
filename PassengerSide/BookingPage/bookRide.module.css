@@ -93,12 +93,13 @@ header {
 .solo-ride-content h2,
 .shared-ride-content h2 {
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  margin: -3px 0;
 }
 
 .solo-ride-content p,
 .shared-ride-content p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555;
 }
 
