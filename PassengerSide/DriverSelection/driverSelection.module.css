@@ -84,17 +84,6 @@ main {
   object-fit: cover;
 }
 
-.ratings {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.ratings img {
-  width: 12px;
-  height: 12px;
-}
-
 .second-section {
   padding: 10px 0;
   width: 90%;

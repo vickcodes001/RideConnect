@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", function () {
   mainSection.querySelector(".car").innerText = driver.car;
   mainSection.querySelector(".plate").innerText = driver.plate;
   mainSection.querySelector(".image").src = driver.image;
-  mainSection.querySelector(".rating").innerText = driver.rating;
+  // mainSection.querySelector(".rating").innerText = driver.rating;
 
   // MODAL SECTION
   modal.querySelector(".name").innerText = driver.name;
   modal.querySelector(".car").innerText = driver.car;
   modal.querySelector(".plate").innerText = driver.plate;
   modal.querySelector(".image").src = driver.image;
-  modal.querySelector(".rating").innerText = driver.rating;
+  // modal.querySelector(".rating").innerText = driver.rating;
 
   // Redirection section for confirm cancellation button
   confirmCancellationBtn.addEventListener("click", function () {

@@ -22,9 +22,9 @@ cards.forEach((card) => {
     const car = card.querySelector(".car-details p").innerText;
     const plate = card.querySelector(".car-details p:last-child").innerText;
     const image = card.querySelector(".driver-card-img").src; 
-    const rating = card.querySelector(".ratings p").innerText
+    // const rating = card.querySelector(".ratings p").innerText
     
-    const selectedDriver = { name, car, plate, image, rating };
+    const selectedDriver = { name, car, plate, image};
     console.log("selected driver", selectedDriver);
     
     

@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: #33404c;
 }
 
 body {
@@ -76,17 +77,6 @@ main {
 
 .driver-details h4 {
   margin-bottom: 7px;
-}
-
-.ratings {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.ratings img {
-  width: 12px;
-  height: 12px;
 }
 
 footer {
@@ -373,3 +363,99 @@ footer {
   border: none;
   border-radius: 10px;
 }
+
+/*modal for when driver accepts your request*/
+.accepted-request {
+  display: block;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 0 0;
+  height: 50%;
+  width: clamp(90%, 100vw, 1000px);
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+  transform 0.4s ease-out;
+  margin: 0 auto;
+  z-index: 4;
+  /* display: none; */
+
+.accepted-request.active {
+  display: block;
+  transform: translateY(0);
+}
+
+.accepted-request-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  position: relative;
+
+  h4 {
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .timer {
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  .cta-buttons a {
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid #071a39;
+    background-color: #071a39;
+    color: #fff;
+    border-radius: 0.4rem;
+    padding: 0.7rem;
+  }
+}
+
+.ellipsis::after {
+  content: "";
+  display: inline-block;
+  animation: ellipsis-dots 1.5s infinite;
+}
+
+@keyframes ellipsis-dots {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}
+
+.first-seen-cta {
+  display: flex;
+  gap: 8rem;
+  margin-top: 1rem;
+}
+}
+
+.wait-again-cta {
+  display: none;
+}
+
+/* .cancel-ride-cta, .contact-driver-cta, .wait-again-cta {
+  transition: background 0.3s ease-in-out;
+} 
+
+.cancel-ride-cta, .contact-driver-cta, .wait-again-cta:hover {
+  background-color: #7cd04f;
+  border: none;
+} */
