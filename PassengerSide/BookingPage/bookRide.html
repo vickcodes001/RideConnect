@@ -30,10 +30,11 @@
           </div>
           <div class="solo-ride-content">
             <p>Just for you</p>
-            <h1>SOLO RIDE</h1>
+            <h2>SOLO RIDE</h2>
+            <p id="solo-desti-name">Tenece</p>
           </div>
         </div>
-        <h1 id="solo-price">₦3,500</h1>
+        <h2 id="solo-price">₦3,500</h2>
       </div>
       <div class="shared-ride" onclick="selectRideType('shared')">
         <div class="shared-ride-child">
@@ -42,14 +43,14 @@
           </div>
           <div class="shared-ride-content">
             <p>You and a friend</p>
-            <h1>SHARED RIDE</h1>
+            <h2>SHARED RIDE</h2>
+            <p id="shared-desti-name">Tenece</p>
           </div>
         </div>
-        <p class="saved-percent">save 50%</p>
-        <h1 id="shared-price">₦2,500</h1>
+        <h2 id="shared-price">₦2,500</h2>
       </div>
       <section class="cost-com">
-        <h2>Cost comparison</h2>
+        <h4>Cost comparison</h4>
         <div class="cost-com-calc">
           <div class="solo-amount-div">
             <p>Solo ride</p>
@@ -65,12 +66,10 @@
           </div>
         </div>
       </section>
-      <a
-        href="../DriverSelection/driverSelection.html"
-        class="confirm-ride"
-        id="confirm-ride"
-        >Confirm Ride</a
-      >
+      <a href="../DriverSelection/driverSelection.html" class="confirm-ride" id="confirm-ride">
+        Confirm Ride
+      </a>
+      <p class="error-message"></p>
     </div>
     <script src="bookRide.js"></script>
   </body>

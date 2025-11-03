@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     notFoundMessage.style.textAlign = 'center';
     notFoundMessage.style.marginTop = '1rem';
     notFoundMessage.style.color = 'gray';
-    document.body.appendChild(notFoundMessage); // You can append this somewhere else if needed
+    document.body.appendChild(notFoundMessage); 
 
     searchInput.addEventListener('input', function(event) {
 
@@ -39,11 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-function selectDestination(destination, soloPrice, sharedPrice) {
+function selectDestination(destination, soloPrice, sharedPrice, destiName) {
     const rideData = {
         destination: destination,
         soloPrice: soloPrice,
-        sharedPrice: sharedPrice
+        sharedPrice: sharedPrice,
+        destiName: destination
     };
     localStorage.setItem('selectedRide', JSON.stringify(rideData));
     window.location.href = '../BookingPage/bookRide.html';

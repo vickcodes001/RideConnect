@@ -2,21 +2,21 @@ const confirmBtn = document.getElementById("confirmBtn");
 const buttons = document.querySelectorAll(".dec-btn");
 const cards = document.querySelectorAll(".driver-card");
 
-
 // loop through the buttons to see the selected button
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     buttons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
     console.log("clicked");
-    
   });
 });
 
 // select a driver and show the selected driver in the next page
 cards.forEach((card) => {
   const acceptBtn = card.querySelector(".dec-btn");
+  const declineBtn = card.querySelector(".decline-btn");
 
+  // accept button function
   acceptBtn.addEventListener("click", () => {
     const name = card.querySelector("h5").innerText;
     const car = card.querySelector(".car-details p").innerText;
@@ -26,17 +26,21 @@ cards.forEach((card) => {
     
     const selectedDriver = { name, car, plate, image};
     console.log("selected driver", selectedDriver);
-    
-    
+
     localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
-    
+
     confirmBtn.addEventListener("click", () => {
-      window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
+      window.location.href =
+        "/PassengerSide/DriverAssigned/driverAssigned.html";
     });
   });
+
+  // decline button function
+  declineBtn.addEventListener("click", () => {
+    card.style.display = "none";
+    console.log("clicked");
+  });
 });
-
-
 
 // this is to get the availablel drivers from the backend make the driver selected show in the next page
 
@@ -48,7 +52,7 @@ cards.forEach((card) => {
 //   user4: "Mary",
 // };
 
-// // 2. Get the <ul> element
+// // 2. Get the <ul> elementPassengerSide/DriverSelection/driverSelection.js
 // const list = document.getElementById("user");
 
 // // 3. Loop (map) through the object

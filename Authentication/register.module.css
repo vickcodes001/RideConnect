@@ -15,7 +15,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
-  border: 2px solid;
 }
 
 header {
@@ -29,7 +28,7 @@ header img {
   width: 25px;
 }
 
-header:hover {
+header img:hover {
   transform: scale(1.3);
 }
 
@@ -72,7 +71,7 @@ p {
   text-decoration: none;
   color: white;
   padding: 1.2rem;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   background-color: #071a39;
   transition: background 0.3s color 0.3s;
 }
