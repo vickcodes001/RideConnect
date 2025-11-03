@@ -21,10 +21,10 @@ cards.forEach((card) => {
     const name = card.querySelector("h5").innerText;
     const car = card.querySelector(".car-details p").innerText;
     const plate = card.querySelector(".car-details p:last-child").innerText;
-    const image = card.querySelector(".driver-card-img").src;
-    const rating = card.querySelector(".ratings p").innerText;
-
-    const selectedDriver = { name, car, plate, image, rating };
+    const image = card.querySelector(".driver-card-img").src; 
+    // const rating = card.querySelector(".ratings p").innerText
+    
+    const selectedDriver = { name, car, plate, image};
     console.log("selected driver", selectedDriver);
 
     localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
