@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cards with LocalStorage</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h2>My Cards</h2>
+  <div id="cardsContainer"></div>
+  <a href="/index.html">home</a>
+
+  <script>
+    // Default cards if none in localStorage
+    let cards = JSON.parse(localStorage.getItem("cards")) || [
+      { id: 1, title: "Card One" },
+      { id: 2, title: "Card Two" },
+      { id: 3, title: "Card Three" }
+    ];
+
+    const container = document.getElementById("cardsContainer");
+
+    function showCards() {
+      container.innerHTML = ""; // Clear before re-render
+
+      cards.forEach(card => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <span>${card.title}</span>
+          <button onclick="deleteCard(${card.id})">Delete</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function deleteCard(id) {
+      cards = cards.filter(card => card.id !== id);
+      localStorage.setItem("cards", JSON.stringify(cards));
+      showCards();
+    }
+
+    // Display on page load
+    showCards();
+  </script>
+
+</body>
+</html>
