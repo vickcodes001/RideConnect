@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up - Passenger</title>
-  <link rel="stylesheet" href="signUp.module.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="h-div">
-      <div class="return">
-        <a href="/Authentication/register.html">
-          <img src="/asset/arrow-back.png" alt="back">
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Passenger</title>
+    <link rel="stylesheet" href="signUp.module.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="h-div">
+        <div class="return">
+          <a href="/Authentication/register.html">
+            <img src="/asset/arrow-back.png" alt="back" />
+          </a>
+        </div>
+        <h1>Sign Up as Passenger</h1>
       </div>
-      <h1>Sign Up as Passenger</h1>
-    </div>
-  </header>
+    </header>
+    <main>
+      <p>Enter your details to start riding with RideConnect.</p>
+
+      <form id="form">
+        <div class="field1">
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" placeholder="e.g. Adanna Eze" />
+          <div class="error"></div>
+        </div>
+
+        <div class="field1">
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" placeholder="e.g. Adanna Eze" />
+          <div class="error"></div>
+        </div>
+
+        <div class="field2">
+          <label for="email">Email Address</label>
+          <input id="email" type="text" placeholder="you@example.com" />
+          <div class="error"></div>
+        </div>
+
+        <div class="field3">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Create a strong password"
+          />
+          <div class="error"></div>
+        </div>
+
+        <div class="field4">
+          <label for="phone-number">Phone Number</label>
+          <div class="field4B">
+            <p class="country-code">+234</p>
+            <input id="phone-number" type="tel" placeholder="8012345678" />
+          </div>
+          <div class="error"></div>
+        </div>
+
+        <a href="/PassengerSide/Verification/verify.html">
+          <button type="submit">Sign Up as a Passenger</button>
+        </a>
+        <p class="footer">
+          Already have an account?
+          <a href="/Authentication/login.html">Log In</a>
+        </p>
+      </form>
+    </main>
 
   <main>
     <p>Enter your details to start riding with RideConnect.</p>
