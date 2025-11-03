@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cards with LocalStorage</title>
-  <style>
-    .card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    button {
-      background: crimson;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      cursor: pointer;
-      border-radius: 3px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-  <h2>My Cards</h2>
-  <div id="cardsContainer"></div>
-  <a href="/index.html">home</a>
+  <div class="container">
+    <div class="signup-card">
+      <h1>Create Account</h1>
+      <p class="subtitle">Sign up to get started</p>
 
-  <script>
-    // Default cards if none in localStorage
-    let cards = JSON.parse(localStorage.getItem("cards")) || [
-      { id: 1, title: "Card One" },
-      { id: 2, title: "Card Two" },
-      { id: 3, title: "Card Three" }
-    ];
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Enter your name" 
+            required
+          >
+        </div>
 
-    const container = document.getElementById("cardsContainer");
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email" 
+            required
+          >
+        </div>
 
-    function showCards() {
-      container.innerHTML = ""; // Clear before re-render
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter your password" 
+            required
+          >
+        </div>
 
-      cards.forEach(card => {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `
-          <span>${card.title}</span>
-          <button onclick="deleteCard(${card.id})">Delete</button>
-        `;
-        container.appendChild(div);
-      });
-    }
+        <button type="submit" class="btn-submit">Sign Up</button>
 
-    function deleteCard(id) {
-      cards = cards.filter(card => card.id !== id);
-      localStorage.setItem("cards", JSON.stringify(cards));
-      showCards();
-    }
+        <div id="message" class="message"></div>
+      </form>
 
-    // Display on page load
-    showCards();
-  </script>
+      <p class="login-link">
+        Already have an account? <a href="/login">Log in</a>
+      </p>
+    </div>
+  </div>
 
+  <script src="test.js"></script>
 </body>
 </html>
