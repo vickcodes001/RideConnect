@@ -43,10 +43,10 @@ form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   validateField(firstName, 0, "First name cannot be blank");
-  validateField(firstName, 1, "Last name cannot be blank");
+  validateField(lastName, 1, "Last name cannot be blank");
   validateField(email, 2, "Email cannot be blank");
-  validateField(password, 3, "Password cannot be blank");
-  validateField(phonenumber, 4, "Phone number cannot be blank");
+  validateField(phonenumber, 3, "Phone number cannot be blank");
+  validateField(password, 4, "Password cannot be blank");
   validateField(text, 5, "Driver’s license number cannot be blank");
   validateField(vehicle, 6, "Vehicle make cannot be blank");
   validateField(model, 7, "Model cannot be blank");
