@@ -1,6 +1,7 @@
 // Get form and all input fields directly
 const form = document.getElementById("form");
-const fullname = document.getElementById("fullname");
+const firstName = document.getElementById("firstname");
+const lastName = document.getElementById("lastname");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const phonenumber = document.getElementById("phonenumber");
@@ -24,7 +25,7 @@ function validateField(field, index, message) {
   }
 
   // Check for empty input
-  if (value === "") {
+  if (value === '') {
     errorMsg[index].innerHTML = message;
     errorMsg[index].style.color = "red";
 
@@ -38,17 +39,18 @@ function validateField(field, index, message) {
 }
 
 // Form submit validation
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  validateField(fullname, 0, "Full name cannot be blank");
-  validateField(email, 1, "Email cannot be blank");
-  validateField(password, 2, "Password cannot be blank");
+  validateField(firstName, 0, "First name cannot be blank");
+  validateField(lastName, 1, "Last name cannot be blank");
+  validateField(email, 2, "Email cannot be blank");
   validateField(phonenumber, 3, "Phone number cannot be blank");
-  validateField(text, 4, "Driver’s license number cannot be blank");
-  validateField(vehicle, 5, "Vehicle make cannot be blank");
-  validateField(model, 6, "Model cannot be blank");
-  validateField(year, 7, "Year cannot be blank");
-  validateField(color, 8, "Color cannot be blank");
-  validateField(license, 9, "License plate cannot be blank");
+  validateField(password, 4, "Password cannot be blank");
+  validateField(text, 5, "Driver’s license number cannot be blank");
+  validateField(vehicle, 6, "Vehicle make cannot be blank");
+  validateField(model, 7, "Model cannot be blank");
+  validateField(year, 8, "Year cannot be blank");
+  validateField(color, 9, "Color cannot be blank");
+  validateField(license, 10, "License plate cannot be blank");
 });
