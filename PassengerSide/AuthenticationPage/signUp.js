@@ -1,8 +1,9 @@
 const form = document.getElementById('form');
-const fullName = document.getElementById('full-name');
+const firstName = document.getElementById('first-name');
+const lastName = document.getElementById('last-name');
 const email = document.getElementById('email');
-const password = document.getElementById('password');
 const phoneNumber = document.getElementById('phone-number');
+const password = document.getElementById('password');
 
 form.addEventListener('submit', async function(event) {
   event.preventDefault();
@@ -12,10 +13,11 @@ form.addEventListener('submit', async function(event) {
   if (!isValid) return;
 
   const userData = {
-    fullName: fullName.value.trim(),
+    firstName: firstName.value.trim(),
+    lastName: lastName.value.trim(),
     email: email.value.trim(),
+    phoneNumber: phoneNumber.value.trim(),
     password: password.value.trim(),
-    phoneNumber: phoneNumber.value.trim()
   };
 
   try {
@@ -44,16 +46,24 @@ const phonePattern = /^\+?\d{7,15}$/;
 function validateInputs() {
   let isValid = true;
 
-  const fullNameValue = fullName.value.trim();
+  const firstNameValue = firstName.value.trim();
+  const lastNamevalue = lastName.value.trim();
   const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
   const phoneValue = phoneNumber.value.trim();
+  const passwordValue = password.value.trim();
 
-  if (fullNameValue === '') {
-    setError(fullName, 'Full name is required');
+  if (firstNameValue === '') {
+    setError(firstName, 'First name is required');
     isValid = false;
   } else {
-    setSuccess(fullName);
+    setSuccess(firstName);
+  }
+
+  if (lastNamevalue === '') {
+    setError(lastName, 'Last name is required');
+    isValid = false;
+  } else {
+    setSuccess(lastName);
   }
 
   if (emailValue === '') {
@@ -65,14 +75,7 @@ function validateInputs() {
   } else {
     setSuccess(email);
   }
-
-  if (passwordValue.length < 8) {
-    setError(password, 'Password must be at least 8 characters');
-    isValid = false;
-  } else {
-    setSuccess(password);
-  }
-
+  
   if (phoneValue === '') {
     setError(phoneNumber, 'Phone number cannot be empty');
     isValid = false;
@@ -81,6 +84,13 @@ function validateInputs() {
     isValid = false;
   } else {
     setSuccess(phoneNumber);
+  }
+
+  if (passwordValue.length < 8) {
+    setError(password, 'Password must be at least 8 characters');
+    isValid = false;
+  } else {
+    setSuccess(password);
   }
 
   return isValid;
