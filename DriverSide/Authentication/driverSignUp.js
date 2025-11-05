@@ -110,7 +110,7 @@ form.addEventListener("submit", async function (e) {
     
     // CRITICAL FIX: The try...catch structure is now correct.
     try {
-        const response = await fetch("https://rideconnect.azurewebsites.net/api/Authentication/register-driver", {
+        const response = await fetch(`${ProcessingInstruction.env.NEXT_PUBLIC_API_URL}/api/Authentication/register-driver`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userData)
@@ -120,8 +120,8 @@ form.addEventListener("submit", async function (e) {
         
         if (response.ok) {
             // HTTP 200-299 status code
-            alert("Registration Successful!");
-            // window.location.href = "/PassengerSide/Verification/verify.html"; // Uncomment when ready
+            // alert("Registration Successful!");
+            window.location.href = "/PassengerSide/Verification/verify.html"; // Uncomment when ready
         } else {
             // HTTP 4xx or 5xx status code (e.g., email already exists)
             // Note: Ensure your API returns a clear error message in the 'result' object

@@ -47,21 +47,12 @@ form.addEventListener('submit', async function (event) {
         window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
 
       }
-      
-
-    } else if (response.status === 401) {
-      // alert("Invalid phone number or password. Please try again.");
-    } else if (response.status === 404) {
-      // alert("Account not found. Please sign up first.");
     } else {
-      // alert(`Login failed: ${result.message || "Something went wrong"}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    // alert("Network error. Please try again.");
   }
 });
-    window.location.href = "/DriverSide/DriverDashboard";
 
 const phonePattern = /^\+?\d{7,15}$/; 
 
