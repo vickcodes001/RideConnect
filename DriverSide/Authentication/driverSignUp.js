@@ -124,7 +124,7 @@ form.addEventListener("submit", async function (e) {
         if (response.ok) {
             // HTTP 200-299 status code
             // alert("Registration Successful!");
-            window.location.href = "/PassengerSide/Verification/verify.html"; // Uncomment when ready
+            window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html"
         } else {
             // HTTP 4xx or 5xx status code (e.g., email already exists)
             // Note: Ensure your API returns a clear error message in the 'result' object
