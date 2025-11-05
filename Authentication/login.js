@@ -49,6 +49,7 @@ form.addEventListener('submit', async function (event) {
     alert("Network error. Please try again.");
   }
 });
+    window.location.href = "/DriverSide/DriverDashboard";
 
 const phonePattern = /^\+?\d{7,15}$/; 
 
