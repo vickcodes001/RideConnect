@@ -27,19 +27,19 @@
       <form id="form">
         <div class="field1">
           <label for="first-name">First Name</label>
-          <input id="first-name" type="text" placeholder="e.g. Adanna">
+          <input id="first-name" type="text" placeholder="e.g. Adanna" />
           <div class="error"></div>
         </div>
 
         <div class="field1">
           <label for="last-name">Last Name</label>
-          <input id="last-name" type="text" placeholder="e.g. Eze">
+          <input id="last-name" type="text" placeholder="e.g. Eze" />
           <div class="error"></div>
-        </div> 
+        </div>
 
         <div class="field2">
           <label for="email">Email Address</label>
-          <input id="email" type="text" placeholder="you@example.com">
+          <input id="email" type="text" placeholder="you@example.com" />
           <div class="error"></div>
         </div>
 
@@ -47,20 +47,26 @@
           <label for="phone-number">Phone Number</label>
           <div class="field4B">
             <p class="country-code">+234</p>
-            <input id="phone-number" type="tel" placeholder="8012345678">
+            <input id="phone-number" type="tel" placeholder="8012345678" />
           </div>
           <div class="error"></div>
         </div>
-        
+
         <div class="field3">
           <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Create a strong password">
+          <input
+            id="password"
+            type="password"
+            placeholder="Create a strong password"
+          />
           <div class="error"></div>
         </div>
 
-        
-          <button type="submit">Sign Up as a Passenger</button>
-        
+        <button type="submit" id="registerBtn">
+          <span class="btn-text">Sign Up as a Passenger</span>
+          <span class="loader"></span>
+        </button>
+
         <p class="footer">
           Already have an account?
           <a href="/Authentication/login.html">Log In</a>
@@ -68,6 +74,6 @@
       </form>
     </main>
 
-  <script src="signUp.js"></script>
-</body>
+    <script src="signUp.js"></script>
+  </body>
 </html>
