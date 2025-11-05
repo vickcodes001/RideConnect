@@ -2,44 +2,92 @@ const form = document.getElementById('form');
 const phoneNumber = document.getElementById('phonenumber');
 const password = document.getElementById('password');
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
+form.addEventListener('submit', async function (event) {
+  event.preventDefault();
 
-    validateInputs();
+  const isValid = validateInputs();
+  if (!isValid) return;
+
+  const userData = {
+    username: phoneNumber.value.trim(),
+    password: password.value.trim(),
+  };
+
+  try {
+    console.log("Login payload:", userData);
+
+    const response = await fetch("https://rideconnect.azurewebsites.net/api/Authentication/login", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache"
+      },
+      body: JSON.stringify(userData),
+  });
+    const result = await response.json();
+
+    if (response.ok) {
+      // alert("Login successful!");
+      console.log("Full login response:", result); // Keep this to debug
+
+      // Save the token
+      if (result.token) {
+        localStorage.setItem("authToken", result.token);
+      }
+
+      
+      const userRole = result.role; 
+
+      if (userRole === "Driver") {
+        // Redirect to Driver Dashboard
+        window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
+
+      } else {
+        // Redirect to Passenger Location Page
+        window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
+
+      }
+    } else {
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
 });
 
 const phonePattern = /^\+?\d{7,15}$/; 
 
 const validateInputs = function () {
-    let isValid = true;
+  let isValid = true;
 
-    const rawPhoneNumberValue = phoneNumber.value.trim();
-    const cleanPhoneNumberValue = rawPhoneNumberValue.replace(/[ \-\(\)]/g, '');
+  const rawPhoneNumberValue = phoneNumber.value.trim();
+  const cleanPhoneNumberValue = rawPhoneNumberValue.replace(/[ \-\(\)]/g, '');
+  const passwordValue = password.value.trim();
 
-    const passwordValue = password.value.trim();
-    
-    // phonenumber 
-    if(rawPhoneNumberValue === '') {
-        setError(phoneNumber, 'Phone number cannot be empty');
-    } else if (!phonePattern.test(cleanPhoneNumberValue)) {
-        setError(phoneNumber, 'Enter a valid number (7-15 digits, optional + prefix).')
-    } else {
-        setSuccess(phoneNumber);
-    }
+  // Phone number
+  if (rawPhoneNumberValue === '') {
+    setError(phoneNumber, 'Phone number cannot be empty');
+    isValid = false;
+  } else if (!phonePattern.test(cleanPhoneNumberValue)) {
+    setError(phoneNumber, 'Enter a valid number (7-15 digits, optional + prefix).');
+    isValid = false;
+  } else {
+    setSuccess(phoneNumber);
+  }
 
-    //password
-    if (passwordValue === '') {
-        setError(password, 'Password cannot be empty');
-    } else if (passwordValue.length < 8) {
-        setError(password, 'Password must be atleast 8 characters');
-    } else {
-        setSuccess(password)
-    }
+  // Password
+  if (passwordValue === '') {
+    setError(password, 'Password cannot be empty');
+    isValid = false;
+  } else if (passwordValue.length < 8) {
+    setError(password, 'Password must be at least 8 characters');
+    isValid = false;
+  } else {
+    setSuccess(password);
+  }
 
-    // if (isValid) {
-    //     window.location.href = "../PassengerSide/LocationSelectionPage/locationSelection.html";
-    // }
-}
+  return isValid;
+};
+
 
 
 
@@ -60,10 +108,13 @@ const setError = function (element, message) {
 // success for input fields 
 const setSuccess = function(element) {
     const field = element.parentElement;
-    const errorDisplay = field.querySelector('.error');
+    const errorDisplay = field.querySelector('.error-message'); // 👈 FIXED
 
-    errorDisplay.innerText = '';
+    // This will now work, because errorDisplay is found
+    if (errorDisplay) { 
+        errorDisplay.innerText = '';
+    }
+    
     field.classList.add('success');
     field.classList.remove('error');
 }
-

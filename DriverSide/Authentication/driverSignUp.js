@@ -86,7 +86,7 @@ function isValidPhone(value) {
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // 🛑 CRITICAL FIX: Run all validation first. If it fails, EXIT the function.
+    // CRITICAL FIX: Run all validation first. If it fails, EXIT the function.
     if (!validateAllFields()) {
         console.log("Validation failed. Submission blocked.");
         return; 
@@ -100,28 +100,31 @@ form.addEventListener("submit", async function (e) {
         phonenumber: phonenumber.value.trim(),
         password: password.value.trim(),
         // Note: 'text' is assumed to be 'driversLicenseNumber'
-        driversLicenseNumber: text.value.trim(), 
+        dlNumber: text.value.trim(), 
         vehicleMake: vehicle.value.trim(),
-        model: model.value.trim(),
-        year: year.value.trim(),
-        color: color.value.trim(),
-        licensePlate: license.value.trim(), // Note: 'license' is assumed to be 'licensePlate'
+        carModel: model.value.trim(),
+        productionYear: year.value.trim(),
+        carColor: color.value.trim(),
+        carPlateNumber: license.value.trim(), // Note: 'license' is assumed to be 'licensePlate'
     };
     
-    // 🛑 CRITICAL FIX: The try...catch structure is now correct.
+    // CRITICAL FIX: The try...catch structure is now correct.
     try {
-        const response = await fetch("https://rideconnect.azurewebsites.net/api/Authentication/register-driver", {
+        const response = await fetch(
+          "https://rideconnect.azurewebsites.net/api/Authentication/register-driver",
+          {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(userData)
-        });
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData),
+          }
+        );
 
         const result = await response.json();
         
         if (response.ok) {
             // HTTP 200-299 status code
-            alert("Registration Successful!");
-            // window.location.href = "/PassengerSide/Verification/verify.html"; // Uncomment when ready
+            // alert("Registration Successful!");
+            window.location.href = "/PassengerSide/Verification/verify.html"; // Uncomment when ready
         } else {
             // HTTP 4xx or 5xx status code (e.g., email already exists)
             // Note: Ensure your API returns a clear error message in the 'result' object
@@ -130,6 +133,6 @@ form.addEventListener("submit", async function (e) {
     } catch (error) {
         // Network errors (e.g., API is down, no internet connection)
         console.error("Network Error:", error);
-        alert("Network error. Please check your connection and try again.");
+        // alert("Network error. Please check your connection and try again.");
     }
 });

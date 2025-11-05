@@ -51,11 +51,6 @@ form h4 {
   margin-bottom: 1rem;
 }
 
-.forget-password {
-  display: flex;
-  justify-content: flex-end;
-  text-decoration: none;
-}
 
 input {
     width: 100%;
