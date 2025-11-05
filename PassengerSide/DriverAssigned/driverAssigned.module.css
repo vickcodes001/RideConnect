@@ -378,6 +378,7 @@ footer {
   margin: 0 auto;
   z-index: 4;
   /* display: none; */
+}
 
 .accepted-request.active {
   display: block;
@@ -442,20 +443,23 @@ footer {
 
 .first-seen-cta {
   display: flex;
-  gap: 8rem;
+  gap: 3rem;
   margin-top: 1rem;
-}
 }
 
 .wait-again-cta {
   display: none;
 }
 
-/* .cancel-ride-cta, .contact-driver-cta, .wait-again-cta {
+.wait-again-cta.active {
+  display: block;
+}
+
+.cancel-ride-cta, .contact-driver-cta, .wait-again-cta {
   transition: background 0.3s ease-in-out;
 } 
 
 .cancel-ride-cta, .contact-driver-cta, .wait-again-cta:hover {
   background-color: #7cd04f;
   border: none;
-} */
+}
