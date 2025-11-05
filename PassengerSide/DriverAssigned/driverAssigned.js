@@ -87,3 +87,57 @@ document.addEventListener("DOMContentLoaded", function () {
       "/PassengerSide/DriverSelection/driverSelection.html";
   });
 });
+
+// TIMER SECTION
+const acceptedModal = document.getElementById("accepted-request");
+const hourEl = document.querySelector(".hour");
+const minuteEl = document.querySelector(".minute");
+const secondEl = document.querySelector(".second");
+const cancelRideCTA = document.querySelector(".cancel-ride-cta");
+const contactDriverCTA = document.querySelector(".contact-driver-cta");
+const waitAgainCTA = document.querySelector(".wait-again-cta");
+
+let timerInterval; // store timer
+let totalSeconds = 5 * 60; // 5 minutes
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    totalSeconds--;
+
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    // update UI
+    minuteEl.textContent = String(minutes).padStart(2, "0");
+    secondEl.textContent = String(seconds).padStart(2, "0");
+
+    // if time is up
+    if (totalSeconds <= 0) {
+      clearInterval(timerInterval);
+      contactDriverCTA.style.display = "none";
+      waitAgainCTA.style.display = "inline-block";
+    }
+  }, 1000);
+}
+
+// cancel button stops timer
+cancelRideCTA.addEventListener("click", () => {
+  clearInterval(timerInterval);
+  console.log("Timer stopped because ride was cancelled");
+});
+
+// wait again resets timer
+waitAgainCTA.addEventListener("click", () => {
+  totalSeconds = 5 * 60; // reset to 5 minutes
+  minuteEl.textContent = "05";
+  secondEl.textContent = "00";
+  waitAgainCTA.style.display = "none";
+  contactDriverCTA.style.display = "inline-block";
+  startTimer();
+});
+
+// start timer automatically when modal opens
+window.addEventListener("load", () => {
+  acceptedModal.classList.add("active"); // you can remove this if it’s triggered elsewhere
+  startTimer();
+});
