@@ -9,12 +9,12 @@ form.addEventListener('submit', async function (event) {
   if (!isValid) return;
 
   const userData = {
-    username: phoneNumber.value.trim(), // 👈 FIXED
+    username: phoneNumber.value.trim(),
     password: password.value.trim(),
   };
 
   try {
-    console.log("Login payload:", userData); // This will now log {username: "..."}
+    console.log("Login payload:", userData);
 
     const response = await fetch("https://rideconnect.azurewebsites.net/api/Authentication/login", {
       method: "POST",
@@ -27,26 +27,38 @@ form.addEventListener('submit', async function (event) {
     const result = await response.json();
 
     if (response.ok) {
-      alert("Login successful!");
-      
-      // Optionally save user token or info (if backend returns one)
+      // alert("Login successful!");
+      console.log("Full login response:", result); // Keep this to debug
+
+      // Save the token
       if (result.token) {
         localStorage.setItem("authToken", result.token);
       }
 
-      // Redirect to Passenger Dashboard (or wherever you want)
-      window.location.href = "/PassengerSide/Home/home.html";
+      
+      const userRole = result.role; 
+
+      if (userRole === "Driver") {
+        // Redirect to Driver Dashboard
+        window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
+
+      } else {
+        // Redirect to Passenger Location Page
+        window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
+
+      }
+      
 
     } else if (response.status === 401) {
-      alert("Invalid phone number or password. Please try again.");
+      // alert("Invalid phone number or password. Please try again.");
     } else if (response.status === 404) {
-      alert("Account not found. Please sign up first.");
+      // alert("Account not found. Please sign up first.");
     } else {
-      alert(`Login failed: ${result.message || "Something went wrong"}`);
+      // alert(`Login failed: ${result.message || "Something went wrong"}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("Network error. Please try again.");
+    // alert("Network error. Please try again.");
   }
 });
     window.location.href = "/DriverSide/DriverDashboard";
