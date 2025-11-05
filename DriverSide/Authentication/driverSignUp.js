@@ -110,11 +110,14 @@ form.addEventListener("submit", async function (e) {
     
     // CRITICAL FIX: The try...catch structure is now correct.
     try {
-        const response = await fetch(`${ProcessingInstruction.env.NEXT_PUBLIC_API_URL}/api/Authentication/register-driver`, {
+        const response = await fetch(
+          "https://rideconnect.azurewebsites.net/api/Authentication/register-driver",
+          {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(userData)
-        });
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData),
+          }
+        );
 
         const result = await response.json();
         
