@@ -83,19 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Redirection section for confirm cancellation button
   confirmCancellationBtn.addEventListener("click", function () {
-    window.location.href =
-      "/PassengerSide/DriverSelection/driverSelection.html";
+    window.location.href = "/PassengerSide/DriverSelection/driverSelection.html";
   });
 });
 
 // TIMER SECTION
+const acceptRequestModal = document.getElementById("accept-request-modal-overlay")
 const acceptedModal = document.getElementById("accepted-request");
 const hourEl = document.querySelector(".hour");
 const minuteEl = document.querySelector(".minute");
 const secondEl = document.querySelector(".second");
 const cancelRideCTA = document.querySelector(".cancel-ride-cta");
-const contactDriverCTA = document.querySelector(".contact-driver-cta");
 const waitAgainCTA = document.querySelector(".wait-again-cta");
+const contactDriverCTA = document.querySelector(".contact-driver-cta")
 
 let timerInterval; // store timer
 let totalSeconds = 5 * 60; // 5 minutes
@@ -114,15 +114,16 @@ function startTimer() {
     // if time is up
     if (totalSeconds <= 0) {
       clearInterval(timerInterval);
-      contactDriverCTA.style.display = "none";
       waitAgainCTA.style.display = "inline-block";
     }
   }, 1000);
 }
 
-// cancel button stops timer
+// cancel button cancel ride entirely
 cancelRideCTA.addEventListener("click", () => {
-  clearInterval(timerInterval);
+  window.location.href = "/PassengerSide/DriverSelection/driverSelection.html";
+  acceptRequestModal.classList.remove("active");
+  acceptedModal.classList.remove("active");
   console.log("Timer stopped because ride was cancelled");
 });
 
@@ -131,13 +132,19 @@ waitAgainCTA.addEventListener("click", () => {
   totalSeconds = 5 * 60; // reset to 5 minutes
   minuteEl.textContent = "05";
   secondEl.textContent = "00";
-  waitAgainCTA.style.display = "none";
-  contactDriverCTA.style.display = "inline-block";
+  waitAgainCTA.style.display = "inline-block";
   startTimer();
 });
 
 // start timer automatically when modal opens
 window.addEventListener("load", () => {
-  acceptedModal.classList.add("active"); // you can remove this if it’s triggered elsewhere
+  acceptRequestModal.classList.add("active");
+  acceptedModal.classList.add("active");
   startTimer();
 });
+
+
+  // Function to trigger the phone call for accepted ride modal
+  contactDriverCTA.addEventListener("click", function () {
+    window.location.href = "tel:+234 9130 5334 42";
+  });
