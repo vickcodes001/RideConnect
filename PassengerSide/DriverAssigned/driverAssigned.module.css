@@ -364,6 +364,25 @@ footer {
   border-radius: 10px;
 }
 
+/*modal for accept ride request*/
+.accept-request-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.658);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 2;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
+}
+
+.accept-request-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 /*modal for when driver accepts your request*/
 .accepted-request {
   display: block;
@@ -377,7 +396,7 @@ footer {
   transform 0.4s ease-out;
   margin: 0 auto;
   z-index: 4;
-  /* display: none; */
+  display: none;
 }
 
 .accepted-request.active {
@@ -416,7 +435,11 @@ footer {
     background-color: #071a39;
     color: #fff;
     border-radius: 0.4rem;
-    padding: 0.7rem;
+    padding: 0.8rem;
+  }
+
+  .contact-driver-cta {
+    margin: auto;
   }
 }
 
@@ -447,19 +470,8 @@ footer {
   margin-top: 1rem;
 }
 
-.wait-again-cta {
-  display: none;
-}
-
-.wait-again-cta.active {
-  display: block;
-}
-
-.cancel-ride-cta, .contact-driver-cta, .wait-again-cta {
-  transition: background 0.3s ease-in-out;
-} 
-
-.cancel-ride-cta, .contact-driver-cta, .wait-again-cta:hover {
-  background-color: #7cd04f;
-  border: none;
+.second-seen-cta {
+  display: flex;
+  margin-top: 3.5rem;
+  width: 100%;
 }
