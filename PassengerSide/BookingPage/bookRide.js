@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Prevent default action if needed
         e.preventDefault();
 
+        
         // read which ride type user picked
         const rideType = localStorage.getItem('selectedRideType');
-
+        
         // if no selection, show error and stop
         if (!rideType) {
             errorMessage.textContent = 'Please select a ride type (Solo or Shared)';
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // clear any previous error
         errorMessage.textContent = '';
-
+        
         // get the stored ride data we used to populate the page
         const storedRide = JSON.parse(localStorage.getItem('selectedRide'));
         if (!storedRide) {
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'location.html';
             return;
         }
-
+        
         // build the object the API expects
         const dataToSend = {
             from: "Akanu Ibiam International Airport",
@@ -62,8 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
             driverId: "12345", // replace with actual driver id if available
             price: rideType === 'solo' ? storedRide.soloPrice.toString() : storedRide.sharedPrice.toString()
         };
-
+        
         console.log('Sending to API:', dataToSend);
+        
+        confirmButton.classList.add("loading")
+        startLoading(); //start loader immediately
 
         // call the API using fetch
         try {
@@ -93,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Booking failed:', err);
             alert('Something went wrong while booking the ride. Try again.');
         }
+
+        stopLoading();  //stop loader after everything
     });
 });
 
@@ -117,4 +123,15 @@ function selectRideType(rideType) {
         soloElement.style.borderColor = '#071a39';
         soloElement.style.backgroundColor = 'white';
     }
+}
+
+// Loader Functions
+function startLoading() {
+  confirmButton.classList.add("loading");
+  confirmButton.disabled = true;
+}
+
+function stopLoading() {
+  confirmButton.classList.remove("loading");
+  confirmButton.disabled = false;
 }

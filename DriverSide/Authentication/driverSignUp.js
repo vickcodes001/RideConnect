@@ -12,6 +12,7 @@ const year = document.getElementById("year");
 const color = document.getElementById("color");
 const license = document.getElementById("license"); // Assuming this is License Plate
 const errorMsg = document.getElementsByClassName("error"); // Assumes these match the input fields' order
+const registerBtn = document.getElementById("registerBtn");
 
 // --- 1. SET/DISPLAY ERROR (Modified to use the class name for clarity) ---
 
@@ -91,7 +92,10 @@ form.addEventListener("submit", async function (e) {
         console.log("Validation failed. Submission blocked.");
         return; 
     }
-    
+
+    registerBtn.classList.add("loading");
+    startLoading(); //start loading
+
     // If validation passes, proceed to API call
     const userData = {
         Firstname: firstName.value.trim(),
@@ -135,4 +139,17 @@ form.addEventListener("submit", async function (e) {
         console.error("Network Error:", error);
         // alert("Network error. Please check your connection and try again.");
     }
+
+    stopLoading(); //stop loading after everything
 });
+
+//loader functions
+function startLoading() {
+  registerBtn.classList.add("loading");
+  registerBtn.disabled = true;
+}
+
+function stopLoading() {
+  registerBtn.classList.remove("loading");
+  registerBtn.disabled = false;
+}
