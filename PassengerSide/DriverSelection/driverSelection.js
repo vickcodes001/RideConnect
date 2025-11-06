@@ -1,63 +1,108 @@
+const driverContainer = document.getElementById("driverContainer");
 const confirmBtn = document.getElementById("confirmBtn");
-const buttons = document.querySelectorAll(".dec-btn");
-const cards = document.querySelectorAll(".driver-card");
 
-// loop through the buttons to see the selected button
-buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    buttons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    console.log("clicked");
+let selectedDriver = null; // store currently selected driver
+
+// --- 1️⃣ Fetch Drivers from the API ---
+async function fetchDrivers() {
+  try {
+    const response = await fetch("https://rideconnect.azurewebsites.net/api/Driver/get-all-drivers");
+const result = await response.json();
+
+const drivers = Array.isArray(result) ? result : result.data || [];
+
+if (!drivers.length) {
+  driverContainer.innerHTML = "<p>No drivers found at the moment.</p>";
+  return;
+}
+
+displayDrivers(drivers);
+  } catch (error) {
+    console.error("Error fetching drivers:", error);
+    driverContainer.innerHTML = "<p>Unable to load drivers. Please try again later.</p>";
+  }
+}
+
+// --- 2️⃣ Display the Drivers in the Page ---
+function displayDrivers(drivers) {
+  driverContainer.innerHTML = ""; // clear existing content
+
+  drivers.forEach((driver) => {
+    const car = driver.driverPersonalDataResponse?.carDetails || {};
+
+    const card = document.createElement("div");
+    card.classList.add("driver-card");
+
+    card.innerHTML = `
+      <div class="first-section">
+        <div>
+          <img
+            src="/asset/driver.jpg"
+            alt="driver picture"
+            class="driver-card-img"
+          />
+        </div>
+        <div class="driver-details">
+          <h5>${driver.fullName || "Unnamed Driver"}</h5>
+          <div class="car-details">
+            <p>${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}</p>
+            <p>Plate: ${car.carPlateNumber || "N/A"}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="second-section">
+        <div class="decision-btn">
+          <button class="decline-btn">Decline</button>
+          <button class="dec-btn">Accept</button>
+        </div>
+      </div>
+    `;
+
+    driverContainer.appendChild(card);
   });
-});
 
-// select a driver and show the selected driver in the next page
-cards.forEach((card) => {
-  const acceptBtn = card.querySelector(".dec-btn");
-  const declineBtn = card.querySelector(".decline-btn");
+  setupButtonListeners();
+}
 
-  // accept button function
-  acceptBtn.addEventListener("click", () => {
-    const name = card.querySelector("h5").innerText;
-    const car = card.querySelector(".car-details p").innerText;
-    const plate = card.querySelector(".car-details p:last-child").innerText;
-    const image = card.querySelector(".driver-card-img").src; 
-    // const rating = card.querySelector(".ratings p").innerText
-    
-    const selectedDriver = { name, car, plate, image};
-    console.log("selected driver", selectedDriver);
+// --- 3️⃣ Handle Accept / Decline Buttons ---
+function setupButtonListeners() {
+  const cards = document.querySelectorAll(".driver-card");
 
-    localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
+  cards.forEach((card) => {
+    const acceptBtn = card.querySelector(".dec-btn");
+    const declineBtn = card.querySelector(".decline-btn");
 
-    confirmBtn.addEventListener("click", () => {
-      window.location.href =
-        "/PassengerSide/DriverAssigned/driverAssigned.html";
+    // accept driver
+    acceptBtn.addEventListener("click", () => {
+      document.querySelectorAll(".dec-btn").forEach((btn) => btn.classList.remove("active"));
+      acceptBtn.classList.add("active");
+
+      const name = card.querySelector("h5").innerText;
+      const car = card.querySelector(".car-details p").innerText;
+      const plate = card.querySelector(".car-details p:last-child").innerText;
+      const image = card.querySelector(".driver-card-img").src;
+
+      selectedDriver = { name, car, plate, image };
+      localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
+    });
+
+    // decline driver
+    declineBtn.addEventListener("click", () => {
+      card.style.display = "none";
     });
   });
+}
 
-  // decline button function
-  declineBtn.addEventListener("click", () => {
-    card.style.display = "none";
-    console.log("clicked");
-  });
+// --- 4️⃣ Confirm Selection ---
+confirmBtn.addEventListener("click", () => {
+  if (!selectedDriver) {
+    alert("Please select a driver first!");
+    return;
+  }
+
+  window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
 });
 
-// this is to get the availablel drivers from the backend make the driver selected show in the next page
-
-// // 1. Create an object
-// const users = {
-//   user1: "Victor",
-//   user2: "Amaka",
-//   user3: "John",
-//   user4: "Mary",
-// };
-
-// // 2. Get the <ul> elementPassengerSide/DriverSelection/driverSelection.js
-// const list = document.getElementById("user");
-
-// // 3. Loop (map) through the object
-// Object.keys(users).forEach((key) => {
-//   const li = document.createElement("li");
-//   li.textContent = users[key];
-//   list.appendChild(li);
-// });
+// --- 5️⃣ Run on Page Load ---
+fetchDrivers();
