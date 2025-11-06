@@ -1,12 +1,16 @@
 const form = document.getElementById('form');
 const phoneNumber = document.getElementById('phonenumber');
 const password = document.getElementById('password');
+const loginBtn = document.getElementById("loginBtn");
 
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
   const isValid = validateInputs();
   if (!isValid) return;
+
+  loginBtn.classList.add("loading");
+  startLoading(); //start loading
 
   const userData = {
     username: phoneNumber.value.trim(),
@@ -51,6 +55,8 @@ form.addEventListener('submit', async function (event) {
   } catch (error) {
     console.error("Error:", error);
   }
+
+  stopLoading(); //stop loading after everything
 });
 
 const phonePattern = /^\+?\d{7,15}$/; 
@@ -116,4 +122,15 @@ const setSuccess = function(element) {
     
     field.classList.add('success');
     field.classList.remove('error');
+}
+
+//loader functions
+function startLoading() {
+  loginBtn.classList.add("loading");
+  loginBtn.disabled = true;
+}
+
+function stopLoading() {
+  loginBtn.classList.remove("loading");
+  loginBtn.disabled = false;
 }
