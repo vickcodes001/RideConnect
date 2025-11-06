@@ -5,7 +5,6 @@ const notisBell = document.getElementById('notis');
 const overlay = document.getElementById('modal-overlay');
 const notisCard = document.getElementById('ride-request-card-div');
 
-
 // For the toogle switch
 toggle.addEventListener('click', function () {
   toggle.classList.toggle('active');
@@ -39,3 +38,17 @@ overlay.addEventListener("click", function (event) {
       closePopup();
     }
   });
+
+
+// function to show the driver name
+const driverName = localStorage.getItem("driverName")
+console.log("driver name", driverName);
+
+
+// Display name on dashboard if found
+if (driverName) {
+  const driverNameDisplay = document.getElementById("driver-name");
+  driverNameDisplay.textContent = `${driverName}`;
+} else {
+  console.warn("No driver name found in localStorage");
+}

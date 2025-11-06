@@ -1,9 +1,9 @@
-const form = document.getElementById('form');
-const phoneNumber = document.getElementById('phonenumber');
-const password = document.getElementById('password');
+const form = document.getElementById("form");
+const phoneNumber = document.getElementById("phonenumber");
+const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 
-form.addEventListener('submit', async function (event) {
+form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const isValid = validateInputs();
@@ -20,14 +20,17 @@ form.addEventListener('submit', async function (event) {
   try {
     console.log("Login payload:", userData);
 
-    const response = await fetch("https://rideconnect.azurewebsites.net/api/Authentication/login", {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache"
-      },
-      body: JSON.stringify(userData),
-  });
+    const response = await fetch(
+      "https://rideconnect.azurewebsites.net/api/Authentication/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
     const result = await response.json();
 
     if (response.ok) {
@@ -39,17 +42,22 @@ form.addEventListener('submit', async function (event) {
         localStorage.setItem("authToken", result.token);
       }
 
-      const userRole = result.data.userType; 
+      const userRole = result.data.userType;
 
       if (userRole === "Driver") {
         // Redirect to Driver Dashboard
-        
-        window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
+        localStorage.setItem("driverName", result.data.fullName);
 
+        const driverName = localStorage.getItem("driverName");
+
+        console.log("driver name", driverName);
+
+        window.location.href =
+          "/DriverSide/DriverDashboard/driverDashboard.html";
       } else {
         // Redirect to Passenger Location Page
-        window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
-
+        window.location.href =
+          "/PassengerSide/LocationSelectionPage/locationSelection.html";
       }
     }
   } catch (error) {
@@ -59,32 +67,35 @@ form.addEventListener('submit', async function (event) {
   stopLoading(); //stop loading after everything
 });
 
-const phonePattern = /^\+?\d{7,15}$/; 
+const phonePattern = /^\+?\d{7,15}$/;
 
 const validateInputs = function () {
   let isValid = true;
 
   const rawPhoneNumberValue = phoneNumber.value.trim();
-  const cleanPhoneNumberValue = rawPhoneNumberValue.replace(/[ \-\(\)]/g, '');
+  const cleanPhoneNumberValue = rawPhoneNumberValue.replace(/[ \-\(\)]/g, "");
   const passwordValue = password.value.trim();
 
   // Phone number
-  if (rawPhoneNumberValue === '') {
-    setError(phoneNumber, 'Phone number cannot be empty');
+  if (rawPhoneNumberValue === "") {
+    setError(phoneNumber, "Phone number cannot be empty");
     isValid = false;
   } else if (!phonePattern.test(cleanPhoneNumberValue)) {
-    setError(phoneNumber, 'Enter a valid number (7-15 digits, optional + prefix).');
+    setError(
+      phoneNumber,
+      "Enter a valid number (7-15 digits, optional + prefix)."
+    );
     isValid = false;
   } else {
     setSuccess(phoneNumber);
   }
 
   // Password
-  if (passwordValue === '') {
-    setError(password, 'Password cannot be empty');
+  if (passwordValue === "") {
+    setError(password, "Password cannot be empty");
     isValid = false;
   } else if (passwordValue.length < 8) {
-    setError(password, 'Password must be at least 8 characters');
+    setError(password, "Password must be at least 8 characters");
     isValid = false;
   } else {
     setSuccess(password);
@@ -93,36 +104,33 @@ const validateInputs = function () {
   return isValid;
 };
 
-
-
-
 // error for the input fields
 const setError = function (element, message) {
-    const field = element.parentElement;
-    const errorDisplay = field.querySelector('.error-message');
+  const field = element.parentElement;
+  const errorDisplay = field.querySelector(".error-message");
 
-    errorDisplay.innerText = message;
-    field.classList.add('error');
-    field.classList.remove('success');
+  errorDisplay.innerText = message;
+  field.classList.add("error");
+  field.classList.remove("success");
 
-    setTimeout(function () {
-        errorDisplay.innerText = '';
-    }, 5000);
-}
+  setTimeout(function () {
+    errorDisplay.innerText = "";
+  }, 5000);
+};
 
-// success for input fields 
-const setSuccess = function(element) {
-    const field = element.parentElement;
-    const errorDisplay = field.querySelector('.error-message'); // 👈 FIXED
+// success for input fields
+const setSuccess = function (element) {
+  const field = element.parentElement;
+  const errorDisplay = field.querySelector(".error-message"); // 👈 FIXED
 
-    // This will now work, because errorDisplay is found
-    if (errorDisplay) { 
-        errorDisplay.innerText = '';
-    }
-    
-    field.classList.add('success');
-    field.classList.remove('error');
-}
+  // This will now work, because errorDisplay is found
+  if (errorDisplay) {
+    errorDisplay.innerText = "";
+  }
+
+  field.classList.add("success");
+  field.classList.remove("error");
+};
 
 //loader functions
 function startLoading() {
