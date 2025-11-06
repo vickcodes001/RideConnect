@@ -23,13 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         localStorage.setItem('selectedRideType', '');
     } else {
-        alert('No destination selected! Redirecting...');
+        // alert('No destination selected! Redirecting...');
         window.location.href = 'location.html';
     }
 
     // Prevent confirm when no ride selected
     confirmButton.addEventListener('click', function(e) {
         const rideType = localStorage.getItem('selectedRideType');
+        console.log("Yay!");
+        
         if (!rideType) {
             e.preventDefault();
             errorMessage.textContent = 'Please select a ride type (Solo or Shared)';
@@ -41,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessage.textContent = '';
         }
 
-        stopLoading();  //stop loader after everything
+        window.location.href = '../DriverSelection/driverSelection.html'
+        stopLoading();   //stop loader after everything
     });
 });
 
