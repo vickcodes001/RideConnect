@@ -218,6 +218,11 @@ details-text {
   line-height: 1.5;
 }
 
+.ridehistorydiv1 a {
+  text-decoration: none;
+  color: #33404c;
+}
+
 .ridehistorydiv1_elementtext {
   display: flex;
   flex-direction: column;
@@ -247,6 +252,11 @@ details-text {
   background-color: white;
   border-radius: 0.5rem;
   line-height: 1.5;
+}
+
+.ridehistorydiv2 a {
+  text-decoration: none;
+  color: #33404c;
 }
 
 .ridehistorydiv2_elementtext {
@@ -282,6 +292,11 @@ details-text {
   margin: 0 auto;
   background-color: white;
   border-radius: 0.5rem;
+}
+
+.payment_container a {
+  text-decoration: none;
+  color: #33404c;
 }
 
 .payment_containerelement {
