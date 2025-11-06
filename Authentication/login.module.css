@@ -90,7 +90,37 @@ button {
     color: white;
 }
 
+span {
+  color: white;
+}
 button:hover {
     background: #7cd04f;
     border: none;
+}
+
+/* loader styling */
+.loader {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg);}
+}
+
+.loading .btn-text {
+  display: none;
+}
+
+.loading .loader {
+  display: inline-block;
+}
+
+.footer {
+  margin-top: -0.5rem;
 }

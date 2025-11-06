@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             errorMessage.textContent = '';
         }
+
+        stopLoading();  //stop loader after everything
     });
 });
 
