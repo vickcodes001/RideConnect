@@ -35,11 +35,11 @@ form.addEventListener('submit', async function (event) {
         localStorage.setItem("authToken", result.token);
       }
 
-      
-      const userRole = result.role; 
+      const userRole = result.data.userType; 
 
       if (userRole === "Driver") {
         // Redirect to Driver Dashboard
+        
         window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
 
       } else {
@@ -47,7 +47,6 @@ form.addEventListener('submit', async function (event) {
         window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
 
       }
-    } else {
     }
   } catch (error) {
     console.error("Error:", error);
