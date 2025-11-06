@@ -94,11 +94,11 @@ form.addEventListener("submit", async function (e) {
     
     // If validation passes, proceed to API call
     const userData = {
-        firstName: firstName.value.trim(),
-        lastName: lastName.value.trim(),
-        email: email.value.trim(),
-        phonenumber: phonenumber.value.trim(),
-        password: password.value.trim(),
+        Firstname: firstName.value.trim(),
+        Lastname: lastName.value.trim(),
+        Email: email.value.trim(),
+        Phonenumber: phonenumber.value.trim(),
+        Password: password.value.trim(),
         // Note: 'text' is assumed to be 'driversLicenseNumber'
         dlNumber: text.value.trim(), 
         vehicleMake: vehicle.value.trim(),

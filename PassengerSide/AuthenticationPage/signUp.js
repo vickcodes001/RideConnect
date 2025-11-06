@@ -17,11 +17,11 @@ form.addEventListener("submit", async function (event) {
   
 
   const userData = {
-    firstName: firstName.value.trim(),
-    lastName: lastName.value.trim(),
-    email: email.value.trim(),
-    phoneNumber: phoneNumber.value.trim(),
-    password: password.value.trim(),
+    Firstname: firstName.value.trim(),
+    Lastname: lastName.value.trim(),
+    Email: email.value.trim(),
+    PhoneNumber: phoneNumber.value.trim(),
+    Password: password.value.trim(),
   };
 
   try {
