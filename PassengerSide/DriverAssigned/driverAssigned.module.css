@@ -365,7 +365,7 @@ footer {
 }
 
 /*modal for accept ride request*/
-.accept-request-modal-overlay {
+/* .accept-request-modal-overlay {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.658);
@@ -375,22 +375,22 @@ footer {
   z-index: 2;
   width: clamp(390px, 100vw, 1000px);
   margin: 0 auto;
+  display: none;
 }
 
 .accept-request-modal-overlay.active {
   opacity: 1;
   visibility: visible;
-}
+} */
 
 /*modal for when driver accepts your request*/
-.accepted-request {
+/* .accepted-request {
   display: block;
   background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  -radius: 20px 20px 0 0;
-  height: 50%;
+  height: 50%; */
   /* width: clamp(90%, 100vw, 1000px); */
-  transform: translateY(100%);
+  /* transform: translateY(100%);
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
   transform 0.4s ease-out;
   margin: 0 auto;
@@ -400,7 +400,10 @@ footer {
   right: 0;
   bottom: 0;
   width: clamp(390px, 100vw, 1000px);
-  /* display: none; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  display: none;
+  visibility: hidden;
 }
 
 .accepted-request.active {
@@ -417,6 +420,7 @@ footer {
   padding: 40px 0;
   position: relative;
   bottom: 0;
+  display: none;
 
   h4 {
     font-weight: 700;
@@ -479,4 +483,83 @@ footer {
   display: flex;
   margin-top: 3.5rem;
   width: 100%;
+} */
+
+/*modal for reject ride request*/
+/* .reject-request-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.658);
+  opacity: 0; */
+  /* visibility: hidden; */
+  /* transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 2;
+  width: clamp(390px, 100vw, 1000px);
+  margin: 0 auto;
 }
+
+.reject-request-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+} */
+
+
+/*modal for when driver rejects your request*/
+/* .reject-request {
+  display: block;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  height: 50%;
+  width: clamp(90%, 100vw, 1000px);
+  transform: translateY(100%);
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+  transform 0.4s ease-out;
+  margin: 0 auto;
+  z-index: 5;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(390px, 100vw, 1000px);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.reject-request.active {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.reject-request-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px 0;
+  position: relative;
+  bottom: 0;
+}  
+
+.container-text h4 {
+  margin-top: 0.5rem;
+}
+
+.rejectedRideCTA a {
+  text-decoration: none;
+  margin: 2rem 3rem 3rem;
+  display: flex;
+  justify-content: center;
+  background-color: #071a39;
+  color: white;
+  width: 70%;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  transition: background 0.3s ease-in-out ;
+}
+
+.rejectedRideCTA a:hover {
+  background-color: #7cd04f;
+} */
