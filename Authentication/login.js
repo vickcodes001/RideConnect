@@ -34,32 +34,32 @@ form.addEventListener("submit", async function (event) {
     const result = await response.json();
 
     if (response.ok) {
-      // alert("Login successful!");
-      console.log("Full login response:", result); // Keep this to debug
+  console.log("Full login response:", result);
 
-      // Save the token
-      if (result.token) {
-        localStorage.setItem("authToken", result.token);
-      }
+  // Save the token
+  if (result.token) {
+    localStorage.setItem("authToken", result.token);
+  }
 
-      const userRole = result.data.userType;
+  const userRole = result.data.userType; 
 
-      if (userRole === "Driver") {
-        // Redirect to Driver Dashboard
-        localStorage.setItem("driverName", result.data.fullName);
+  if (userRole === "Driver") {
+    // 🟢 Save driver info for dashboard notification check
+    const driverData = {
+      id: result.data.driverPersonalDataResponse?.id || result.data.id || result.data.userId,
+      fullName: `${result.data.firstName || ""} ${result.data.lastName || ""}`.trim(),
+      phoneNumber: result.data.phoneNumber,
+};
+localStorage.setItem("loggedInDriver", JSON.stringify(driverData));
 
-        const driverName = localStorage.getItem("driverName");
+    // Redirect to Driver Dashboard
+    window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
 
-        console.log("driver name", driverName);
-
-        window.location.href =
-          "/DriverSide/DriverDashboard/driverDashboard.html";
-      } else {
-        // Redirect to Passenger Location Page
-        window.location.href =
-          "/PassengerSide/LocationSelectionPage/locationSelection.html";
-      }
-    }
+  } else {
+    // Redirect to Passenger Location Page
+    window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
+  }
+}
   } catch (error) {
     console.error("Error:", error);
   }
