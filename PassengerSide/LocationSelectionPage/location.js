@@ -47,5 +47,7 @@ function selectDestination(destination, soloPrice, sharedPrice, destiName) {
         destiName: destination
     };
     localStorage.setItem('selectedRide', JSON.stringify(rideData));
+    console.log("details", rideData);
+    
     window.location.href = '../BookingPage/bookRide.html';
 }

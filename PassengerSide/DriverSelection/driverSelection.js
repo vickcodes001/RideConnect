@@ -3,27 +3,30 @@ const confirmBtn = document.getElementById("confirmBtn");
 
 let selectedDriver = null; // store currently selected driver
 
-// --- 1️⃣ Fetch Drivers from the API ---
+// --- Fetch Drivers from the API ---
 async function fetchDrivers() {
   try {
-    const response = await fetch("https://rideconnect.azurewebsites.net/api/Driver/get-all-drivers");
-const result = await response.json();
+    const response = await fetch(
+      "https://rideconnect.azurewebsites.net/api/Driver/get-all-drivers"
+    );
+    const result = await response.json();
 
-const drivers = Array.isArray(result) ? result : result.data || [];
+    const drivers = Array.isArray(result) ? result : result.data || [];
 
-if (!drivers.length) {
-  driverContainer.innerHTML = "<p>No drivers found at the moment.</p>";
-  return;
-}
+    if (!drivers.length) {
+      driverContainer.innerHTML = "<p>No drivers found at the moment.</p>";
+      return;
+    }
 
-displayDrivers(drivers);
+    displayDrivers(drivers);
   } catch (error) {
     console.error("Error fetching drivers:", error);
-    driverContainer.innerHTML = "<p>Unable to load drivers. Please try again later.</p>";
+    driverContainer.innerHTML =
+      "<p>Unable to load drivers. Please try again later.</p>";
   }
 }
 
-// --- 2️⃣ Display the Drivers in the Page ---
+// --- Display the Drivers in the Page ---
 function displayDrivers(drivers) {
   driverContainer.innerHTML = ""; // clear existing content
 
@@ -32,6 +35,8 @@ function displayDrivers(drivers) {
 
     const card = document.createElement("div");
     card.classList.add("driver-card");
+
+    card.dataset.driverId = driver.id;
 
     card.innerHTML = `
       <div class="first-section">
@@ -45,7 +50,9 @@ function displayDrivers(drivers) {
         <div class="driver-details">
           <h5>${driver.fullName || "Unnamed Driver"}</h5>
           <div class="car-details">
-            <p>${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}</p>
+            <p>${car.vehicleMake || "Unknown"} (${
+      car.productionYear || "N/A"
+    }), ${car.carColor || "N/A"}</p>
             <p>Plate: ${car.carPlateNumber || "N/A"}</p>
           </div>
         </div>
@@ -65,7 +72,7 @@ function displayDrivers(drivers) {
   setupButtonListeners();
 }
 
-// --- 3️⃣ Handle Accept / Decline Buttons ---
+// --- Handle Accept / Decline Buttons ---
 function setupButtonListeners() {
   const cards = document.querySelectorAll(".driver-card");
 
@@ -75,15 +82,18 @@ function setupButtonListeners() {
 
     // accept driver
     acceptBtn.addEventListener("click", () => {
-      document.querySelectorAll(".dec-btn").forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".dec-btn")
+        .forEach((btn) => btn.classList.remove("active"));
       acceptBtn.classList.add("active");
 
       const name = card.querySelector("h5").innerText;
       const car = card.querySelector(".car-details p").innerText;
       const plate = card.querySelector(".car-details p:last-child").innerText;
       const image = card.querySelector(".driver-card-img").src;
+      const driverId = card.dataset.driverId;
 
-      selectedDriver = { name, car, plate, image };
+      selectedDriver = { id: driverId, name, car, plate, image };
       localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
     });
 
@@ -94,15 +104,55 @@ function setupButtonListeners() {
   });
 }
 
-// --- 4️⃣ Confirm Selection ---
-confirmBtn.addEventListener("click", () => {
+// --- Confirm Selection ---
+confirmBtn.addEventListener("click", async () => {
   if (!selectedDriver) {
     alert("Please select a driver first!");
     return;
   }
 
-  window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
+  const location = JSON.parse(localStorage.getItem("rideSelection"))
+  const destination = location.destination
+  console.log("location:", destination);
+  
+
+  if (!from || !location) {
+    alert("Pickup or destination missing. Please go back and select again.");
+    return;
+  }
+
+  const rideData = {
+    location,
+    rideTypeId: "1",
+    driverId: selectedDriver.id,
+    price: "2000",
+  };
+
+  try {
+    const response = await fetch(
+      "https://rideconnect.azurewebsites.net/api/RideManagement/book-ride",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(rideData),
+      }
+    );
+
+    const raw = await response.text();
+    console.log("Raw Response:", raw);
+
+    if (!response.ok) {
+      alert("Ride booking failed: " + raw);
+      return;
+    }
+
+    alert("Ride booked successfully!");
+    window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
+  } catch (error) {
+    console.error("Error booking ride:", error);
+    alert("Error booking ride. Try again.");
+  }
 });
 
-// --- 5️⃣ Run on Page Load ---
+// --- Run on Page Load ---
 fetchDrivers();
