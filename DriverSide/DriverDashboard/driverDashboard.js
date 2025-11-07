@@ -4,6 +4,8 @@ const onCircle = document.querySelector('.on-circle');
 const notisBell = document.getElementById('notis');
 const overlay = document.getElementById('modal-overlay');
 const notisCard = document.getElementById('ride-request-card-div');
+const logoutBtn = document.getElementById("logout-btn");
+
 
 // For the toggle switch
 toggle.addEventListener('click', function () {
@@ -17,6 +19,12 @@ toggle.addEventListener('click', function () {
     offCircle.classList.remove('active');
   }
 }); 
+
+// function to remove the driver token
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("authToken");
+  window.location.href = "/"
+})
 
 // for the notification popup; opening
 function openPopup() {
@@ -65,3 +73,4 @@ window.addEventListener("load", () => {
     notisShow.style.visibility = "hidden";
   }
 });
+

@@ -2,6 +2,7 @@ const form = document.getElementById("form");
 const phoneNumber = document.getElementById("phonenumber");
 const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
+const errorMsg = document.getElementById("errorMsg");
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -34,34 +35,45 @@ form.addEventListener("submit", async function (event) {
     const result = await response.json();
 
     if (response.ok) {
-  console.log("Full login response:", result);
+      console.log("Full login response:", result);
 
-  // Save the token
-  if (result.token) {
-    localStorage.setItem("authToken", result.token);
-  }
+      // Save the token
+      const accessToken = result.data.jwtToken.token;
+      if (!accessToken) {
+        errorMsg.innerHTML =
+          "Error processing authentication. Please, try again!";
+      }
 
-  const userRole = result.data.userType; 
+      localStorage.setItem("authToken", accessToken);
 
-  if (userRole === "Driver") {
-    // 🟢 Save driver info for dashboard notification check
-    const driverData = {
-      id: result.data.driverPersonalDataResponse?.id || result.data.id || result.data.userId,
-      fullName: `${result.data.firstName || ""} ${result.data.lastName || ""}`.trim(),
-      phoneNumber: result.data.phoneNumber,
-};
-localStorage.setItem("loggedInDriver", JSON.stringify(driverData));
+      const userRole = result.data.userType;
 
-    // Redirect to Driver Dashboard
-    window.location.href = "/DriverSide/DriverDashboard/driverDashboard.html";
+      if (userRole === "Driver") {
+        // Save driver info for dashboard notification check
+        const driverData = {
+          id:
+            result.data.driverPersonalDataResponse?.id ||
+            result.data.id ||
+            result.data.userId,
+          fullName: `${result.data.firstName || ""} ${
+            result.data.lastName || ""
+          }`.trim(),
+          phoneNumber: result.data.phoneNumber,
+        };
+        localStorage.setItem("loggedInDriver", JSON.stringify(driverData));
 
-  } else {
-    // Redirect to Passenger Location Page
-    window.location.href = "/PassengerSide/LocationSelectionPage/locationSelection.html";
-  }
-}
+        // Redirect to Driver Dashboard
+        window.location.href =
+          "/DriverSide/DriverDashboard/driverDashboard.html";
+      } else {
+        // Redirect to Passenger Location Page
+        window.location.href =
+          "/PassengerSide/LocationSelectionPage/locationSelection.html";
+      }
+    }
   } catch (error) {
     console.error("Error:", error);
+    errorMsg.innerHTML = "Error processing authentication. Please, try again!";
   }
 
   stopLoading(); //stop loading after everything
@@ -120,8 +132,8 @@ const setError = function (element, message) {
 };
 
 const setSuccess = function (element) {
-  const field = element.closest('.field-input');
-  const errorDisplay = field.querySelector('.error-message');
+  const field = element.parentElement;
+  const errorDisplay = field.querySelector(".error-message");
 
   if (errorDisplay) {
     errorDisplay.innerText = '';

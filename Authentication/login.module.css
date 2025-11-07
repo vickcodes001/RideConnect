@@ -1,6 +1,6 @@
 * {
   color: #33404c;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -51,51 +51,50 @@ form h4 {
   margin-bottom: 1rem;
 }
 
-
 input {
-    width: 100%;
-    border: none;
-    border: 2px solid #071a39;
-    border-radius: 0.4rem;
-    padding: 0.8rem;
-    transition: border 0.3s ease-in-out;
+  width: 100%;
+  border: none;
+  border: 2px solid #071a39;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  transition: border 0.3s ease-in-out;
 }
 
 .error-message {
-    color: #ff3860;
-    font-size: 13px;
-    height: 13px;
-    margin: 0.3rem;
+  color: #ff3860;
+  font-size: 13px;
+  height: 13px;
+  margin: 0.3rem;
 }
 
-#field-input.error input{
-    border-color: #ff3860;
+#field-input.error input {
+  border-color: #ff3860;
 }
 
-#field-input.success input{
-    border-color: #071a39;
+#field-input.success input {
+  border-color: #071a39;
 }
 
 button {
-    background-color: #071a39;
-    font-weight: 550;
-    border: none;
-    border: 2px solid #071a39;
-    border-radius: 0.4rem;
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 0.8rem;
-    text-align: center;
-    transition: background 0.3s;
-    color: white;
+  background-color: #071a39;
+  font-weight: 550;
+  border: none;
+  border: 2px solid #071a39;
+  border-radius: 0.4rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  text-align: center;
+  transition: background 0.3s;
+  color: white;
 }
 
 span {
   color: white;
 }
 button:hover {
-    background: #7cd04f;
-    border: none;
+  background: #7cd04f;
+  border: none;
 }
 
 /* loader styling */
@@ -110,7 +109,9 @@ button:hover {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg);}
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading .btn-text {
@@ -125,38 +126,6 @@ button:hover {
   margin-top: -0.5rem;
 }
 
-.password-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding-right: 35px; /* makes room for the icon */
-}
-
-.password-wrapper img {
-  position: absolute;
-  right: 10px;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.password-wrapper img:hover {
-  opacity: 1;
-}
-
-/* Optional slash effect for when password is visible */
-.password-wrapper img.slash::after {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 9px;
-  width: 18px;
-  height: 2px;
-  background: #071a39;
-  transform: rotate(45deg);
+#errorMsg {
+  color: tomato;
 }
