@@ -158,8 +158,40 @@ span {
 .error {
   font-size: 13px;
   color: red;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: 1px; 
+  position: static;    
 }
+
+.password-wrapper {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for icon */
+  height: 45px; /* optional: match your actual input height */
+}
+
+.password-wrapper img {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%); /* centers vertically */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.password-wrapper img:hover {
+  opacity: 1;
+}
+
+.personal-details div,
+.vehicle-details div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem; /* reduced from 1.5rem */
+}
+
