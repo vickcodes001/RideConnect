@@ -10,11 +10,12 @@
 .parent-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: clamp(100%, 70vw, 100vw);
   margin: 0 auto;
   padding: 20px;
+  height: 100vh;
 }
 
 header {
@@ -24,10 +25,6 @@ header {
 header h2 {
   font-size: 28px;
   font-weight: 600;
-}
-
-main {
-  margin-top: 15rem;
 }
 
 main h4 {
@@ -59,34 +56,33 @@ main h4 {
 
 
 footer {
-  width: 100px;
-  max-width: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
 }
 
 ul {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    justify-content: center;
-    border-top: 1px solid lightgray;
-    padding: 15px 50px;
-    list-style: none;
-    gap: 5rem;
-    z-index: -1;
+  display: flex;
+  width: clamp(300px, 87vw, 1000px);
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  padding: 15px 15px;
+  list-style: none;
+  gap: 10px;
+  z-index: -1;
 }
 
-ul li a{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #33404c;
-    font-size: 12px;
+ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #33404c;
+  font-size: 12px;
 }
 
 footer img {
-    width: 20px;
+  width: 20px;
 }
