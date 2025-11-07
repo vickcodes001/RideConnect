@@ -7,7 +7,8 @@ const notisCard = document.getElementById("ride-request-card-div");
 const logoutBtn = document.getElementById("logout-btn");
 
 // For the toggle switch
-toggle.addEventListener("click", function () {
+// --- Driver Availability Toggle ---
+toggle.addEventListener("click", async function () {
   toggle.classList.toggle("active");
 
   if (toggle.classList.contains("active")) {
@@ -16,6 +17,47 @@ toggle.addEventListener("click", function () {
   } else {
     onCircle.classList.remove("active");
     offCircle.classList.remove("active");
+  }
+
+  // 🔹 Get token for authentication
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("You must be logged in to change your status.");
+    return;
+  }
+
+  try {
+    // 🔹 Call API to toggle availability
+    const response = await fetch(
+      "https://rideconnect.azurewebsites.net/api/Driver/toggle-is-available",
+      {
+        method: "PUT", // (if your backend uses POST, change it)
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Toggle failed:", errorText);
+      alert("Failed to update availability: " + errorText);
+      return;
+    }
+
+    const result = await response.json();
+    console.log("Driver availability updated:", result);
+
+    // Optional visual feedback
+    if (toggle.classList.contains("active")) {
+      alert("You are now available for rides!");
+    } else {
+      alert("You are now unavailable.");
+    }
+  } catch (error) {
+    console.error("Error toggling availability:", error);
+    alert("Network error. Please try again.");
   }
 });
 
@@ -54,7 +96,7 @@ overlay.addEventListener("click", function (event) {
 // console.log("selectedDriver:", selectedDriver);
 // console.log("loggedInDriver:", loggedInDriver);
 
-// 🟢 ADD THIS BLOCK AT THE VERY BOTTOM ↓↓↓
+// ADD THIS BLOCK AT THE VERY BOTTOM ↓↓↓
 window.addEventListener("load", () => {
   const notisShow = document.querySelector(".notis_show");
   if (!notisShow) return;
@@ -75,7 +117,7 @@ window.addEventListener("load", () => {
     // ✅ Show notification ONLY to the driver who was selected
     notisShow.style.visibility = "visible";
   } else {
-    // ❌ Hide for all other drivers
+    // Hide for all other drivers
     notisShow.style.visibility = "hidden";
   }
 });
