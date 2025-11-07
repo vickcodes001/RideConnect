@@ -41,11 +41,7 @@ function displayDrivers(drivers) {
     card.innerHTML = `
       <div class="first-section">
         <div>
-          <img
-            src="/asset/driver.jpg"
-            alt="driver picture"
-            class="driver-card-img"
-          />
+          <img src="/asset/driver.jpg" alt="driver picture" class="driver-card-img" loading="lazy"/>
         </div>
         <div class="driver-details">
           <h5>${driver.fullName || "Unnamed Driver"}</h5>
@@ -65,6 +61,9 @@ function displayDrivers(drivers) {
         </div>
       </div>
     `;
+
+    // 🔹 Attach driver data directly to the card element
+    card.dataset.driver = JSON.stringify(driver);
 
     driverContainer.appendChild(card);
   });
@@ -87,14 +86,21 @@ function setupButtonListeners() {
         .forEach((btn) => btn.classList.remove("active"));
       acceptBtn.classList.add("active");
 
-      const name = card.querySelector("h5").innerText;
-      const car = card.querySelector(".car-details p").innerText;
-      const plate = card.querySelector(".car-details p:last-child").innerText;
-      const image = card.querySelector(".driver-card-img").src;
-      const driverId = card.dataset.driverId;
+      // ✅ Get the actual driver data stored in the card
+      const driver = JSON.parse(card.dataset.driver);
+      const car = driver.driverPersonalDataResponse?.carDetails || {};
 
-      selectedDriver = { id: driverId, name, car, plate, image };
+      selectedDriver = {
+        id: driver.driverPersonalDataResponse?.id,  // ✅ use actual driver ID
+        name: driver.fullName || "Unnamed Driver",
+        car: `${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}`,
+        plate: car.carPlateNumber || "N/A",
+        image: "/asset/driver.jpg",
+};
+
+      // ✅ Save to localStorage
       localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
+      console.log("✅ Driver selected:", selectedDriver);
     });
 
     // decline driver
@@ -111,21 +117,19 @@ confirmBtn.addEventListener("click", async () => {
     return;
   }
 
-  const location = JSON.parse(localStorage.getItem("rideSelection"))
-  const destination = location.destination
-  console.log("location:", destination);
-  
-
-  if (!from || !location) {
+  const rideSelection = JSON.parse(localStorage.getItem("rideSelection"));
+  if (!rideSelection) {
     alert("Pickup or destination missing. Please go back and select again.");
     return;
   }
 
+  const destination = rideSelection.destination;
   const rideData = {
-    location,
-    rideTypeId: "1",
+    request: "Passenger ride request", // ✅ required by backend
+    location: destination,             // ✅ send only the destination name as string
+    rideTypeId: 1,
     driverId: selectedDriver.id,
-    price: "2000",
+    price: 2000,
   };
 
   try {
@@ -146,6 +150,9 @@ confirmBtn.addEventListener("click", async () => {
       return;
     }
 
+    // ✅ Save selected driver for notification
+    localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
+
     alert("Ride booked successfully!");
     window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
   } catch (error) {
@@ -153,6 +160,7 @@ confirmBtn.addEventListener("click", async () => {
     alert("Error booking ride. Try again.");
   }
 });
+
 
 // --- Run on Page Load ---
 fetchDrivers();
