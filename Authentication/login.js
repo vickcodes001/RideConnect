@@ -118,30 +118,29 @@ const validateInputs = function () {
 
 // error for the input fields
 const setError = function (element, message) {
-  const field = element.parentElement;
-  const errorDisplay = field.querySelector(".error-message");
+  // find the closest parent that has the error-message div
+  const field = element.closest('.field-input');
+  const errorDisplay = field.querySelector('.error-message');
 
   errorDisplay.innerText = message;
-  field.classList.add("error");
-  field.classList.remove("success");
+  field.classList.add('error');
+  field.classList.remove('success');
 
-  setTimeout(function () {
-    errorDisplay.innerText = "";
+  setTimeout(() => {
+    errorDisplay.innerText = '';
   }, 5000);
 };
 
-// success for input fields
 const setSuccess = function (element) {
   const field = element.parentElement;
   const errorDisplay = field.querySelector(".error-message");
 
-  // This will now work, because errorDisplay is found
   if (errorDisplay) {
-    errorDisplay.innerText = "";
+    errorDisplay.innerText = '';
   }
 
-  field.classList.add("success");
-  field.classList.remove("error");
+  field.classList.add('success');
+  field.classList.remove('error');
 };
 
 //loader functions
@@ -154,3 +153,15 @@ function stopLoading() {
   loginBtn.classList.remove("loading");
   loginBtn.disabled = false;
 }
+
+// Toggle password visibility
+const passwordInput = document.getElementById('password');
+const togglePassword = document.getElementById('togglePassword');
+
+togglePassword.addEventListener('click', () => {
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+
+  // Add slash effect (optional)
+  togglePassword.classList.toggle('slash', type === 'text');
+});
