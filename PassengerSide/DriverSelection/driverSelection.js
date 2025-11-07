@@ -91,12 +91,14 @@ function setupButtonListeners() {
       const car = driver.driverPersonalDataResponse?.carDetails || {};
 
       selectedDriver = {
-        id: driver.driverPersonalDataResponse?.id,  // ✅ use actual driver ID
+        id: driver.driverPersonalDataResponse?.id, // ✅ use actual driver ID
         name: driver.fullName || "Unnamed Driver",
-        car: `${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}`,
+        car: `${car.vehicleMake || "Unknown"} (${
+          car.productionYear || "N/A"
+        }), ${car.carColor || "N/A"}`,
         plate: car.carPlateNumber || "N/A",
         image: "/asset/driver.jpg",
-};
+      };
 
       // ✅ Save to localStorage
       localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
@@ -112,6 +114,8 @@ function setupButtonListeners() {
 
 // --- Confirm Selection ---
 confirmBtn.addEventListener("click", async () => {
+  const token = localStorage.getItem("authToken");
+
   if (!selectedDriver) {
     alert("Please select a driver first!");
     return;
@@ -124,34 +128,37 @@ confirmBtn.addEventListener("click", async () => {
   }
 
   const destination = rideSelection.destination;
+
   const rideData = {
-    request: "Passenger ride request", // ✅ required by backend
-    location: destination,             // ✅ send only the destination name as string
-    rideTypeId: 1,
+    location: destination,
+    rideTypeId: String(1),
     driverId: selectedDriver.id,
-    price: 2000,
+    price: String(2000),
   };
+
+  console.log("Sending:", token);
 
   try {
     const response = await fetch(
       "https://rideconnect.azurewebsites.net/api/RideManagement/book-ride",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(rideData),
       }
     );
 
-    const raw = await response.text();
-    console.log("Raw Response:", raw);
+    const text = await response.text();
+    console.log("STATUS:", response.status);
+    console.log("RAW:", text);
 
     if (!response.ok) {
-      alert("Ride booking failed: " + raw);
+      alert("Failed: " + text);
       return;
     }
-
-    // ✅ Save selected driver for notification
-    localStorage.setItem("selectedDriver", JSON.stringify(selectedDriver));
 
     alert("Ride booked successfully!");
     window.location.href = "/PassengerSide/DriverAssigned/driverAssigned.html";
@@ -160,7 +167,6 @@ confirmBtn.addEventListener("click", async () => {
     alert("Error booking ride. Try again.");
   }
 });
-
 
 // --- Run on Page Load ---
 fetchDrivers();

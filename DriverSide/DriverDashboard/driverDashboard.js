@@ -1,67 +1,106 @@
-const toggle = document.getElementById('toggle_switch');
-const offCircle = document.querySelector('.off-circle');
-const onCircle = document.querySelector('.on-circle');
-const notisBell = document.getElementById('notis');
-const overlay = document.getElementById('modal-overlay');
-const notisCard = document.getElementById('ride-request-card-div');
+// const toggle = document.getElementById("toggle_switch");
+// const offCircle = document.querySelector(".off-circle");
+// const onCircle = document.querySelector(".on-circle");
+// const notisBell = document.getElementById("notis");
+// const overlay = document.getElementById("modal-overlay");
+// const notisCard = document.getElementById("ride-request-card-div");
+// const logoutBtn = document.getElementById("logout-btn");
 
-// For the toggle switch
-toggle.addEventListener('click', function () {
-  toggle.classList.toggle('active');
+// const loggedInDriver = JSON.parse(localStorage.getItem("loggedInDriver"));
+// const authToken = localStorage.getItem("authToken");
 
-  if (toggle.classList.contains('active')) {
-    onCircle.classList.add('active');
-    offCircle.classList.add('active');
-  } else {
-    onCircle.classList.remove('active');
-    offCircle.classList.remove('active');
-  }
-}); 
+// // ---------------- Toggle Switch ----------------
+// toggle.addEventListener("click", function () {
+//   toggle.classList.toggle("active");
 
-// for the notification popup; opening
-function openPopup() {
-  overlay.classList.add('active');
-  notisCard.classList.add('active');
+//   if (toggle.classList.contains("active")) {
+//     onCircle.classList.add("active");
+//     offCircle.classList.add("active");
+//   } else {
+//     onCircle.classList.remove("active");
+//     offCircle.classList.remove("active");
+//   }
+// });
 
-  // Clear the notification after viewing
-  localStorage.removeItem("selectedDriver");
+// // ---------------- Logout ----------------
+// logoutBtn.addEventListener("click", () => {
+//   localStorage.removeItem("authToken");
+//   window.location.href = "/";
+// });
 
-  // Hide the notification dot
-  const notisShow = document.querySelector(".notis_show");
-  if (notisShow) notisShow.style.visibility = "hidden";
-}
-notisBell.addEventListener('click', openPopup);
+// // ---------------- Notification Popup ----------------
+// function openPopup() {
+//   overlay.classList.add("active");
+//   notisCard.classList.add("active");
 
-// for closing popup
-function closePopup() {
-  overlay.classList.remove('active');
-  notisCard.classList.remove('active');
-};
+//   // Hide the notification dot after viewing
+//   const notisShow = document.querySelector(".notis_show");
+//   if (notisShow) notisShow.style.visibility = "hidden";
+// }
+// notisBell.addEventListener("click", openPopup);
 
-overlay.addEventListener("click", function (event) {
-  if (event.target === overlay) {
-    closePopup();
-  }
-});
+// function closePopup() {
+//   overlay.classList.remove("active");
+//   notisCard.classList.remove("active");
+// }
+// overlay.addEventListener("click", function (event) {
+//   if (event.target === overlay) closePopup();
+// });
 
-console.log("✅ selectedDriver:", selectedDriver);
-console.log("✅ loggedInDriver:", loggedInDriver);
+// // ---------------- Polling for Assigned Rides ----------------
+// async function checkAssignedRides() {
+//   if (!loggedInDriver || !authToken) return;
 
+//   try {
+//     const response = await fetch(
+//       `https://rideconnect.azurewebsites.net/api/Driver/get-all-drivers/${loggedInDriver.id}`,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${authToken}`,
+//         },
+//       }
+//     );
 
-// 🟢 ADD THIS BLOCK AT THE VERY BOTTOM ↓↓↓
-window.addEventListener("load", () => {
-  const notisShow = document.querySelector(".notis_show");
-  if (!notisShow) return;
+//     if (!response.ok) {
+//       console.error("Failed to fetch assigned rides:", response.status);
+//       return;
+//     }
 
-  const selectedDriver = JSON.parse(localStorage.getItem("selectedDriver"));
-  const loggedInDriver = JSON.parse(localStorage.getItem("loggedInDriver")); 
-  // ^ This should be set when the driver logs in — contains the driver’s ID or name.
+//     const rides = await response.json();
+//     const notisShow = document.querySelector(".notis_show");
 
-  if (selectedDriver && loggedInDriver && selectedDriver.id === loggedInDriver.id) {
-    // ✅ Show notification ONLY to the driver who was selected
-    notisShow.style.visibility = "visible";
-  } else {
-    // ❌ Hide for all other drivers
-    notisShow.style.visibility = "hidden";
-  }
-});
+//     if (rides && rides.length > 0) {
+//       notisShow.style.visibility = "visible";
+
+//       // Update the popup with the first ride's info
+//       const passengerName = rides[0].passengerName || "Passenger";
+//       const location = rides[0].location;
+//       const price = rides[0].price;
+//       const rideType = rides[0].rideType || "Ride";
+
+//       const rideCardTitle = document.querySelector(
+//         "#ride-request-card-div .passenger-details-general h4"
+//       );
+//       const rideCardDesc = document.querySelector(
+//         "#ride-request-card-div .passenger-details-general p"
+//       );
+
+//       if (rideCardTitle) rideCardTitle.textContent = passengerName;
+//       if (rideCardDesc)
+//         rideCardDesc.textContent = `${location} - ₦${price} - [${rideType}]`;
+//     } else {
+//       notisShow.style.visibility = "hidden";
+//     }
+//   } catch (err) {
+//     console.error("Error fetching assigned rides:", err);
+//   }
+// }
+
+// // Check every 5 seconds
+// setInterval(checkAssignedRides, 5000);
+
+// // ---------------- Initial Check on Page Load ----------------
+// window.addEventListener("load", () => {
+//   checkAssignedRides();
+// });
