@@ -46,9 +46,7 @@ function displayDrivers(drivers) {
         <div class="driver-details">
           <h5>${driver.fullName || "Unnamed Driver"}</h5>
           <div class="car-details">
-            <p>${car.vehicleMake || "Unknown"} (${
-      car.productionYear || "N/A"
-    }), ${car.carColor || "N/A"}</p>
+            <p>${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}</p>
             <p>Plate: ${car.carPlateNumber || "N/A"}</p>
           </div>
         </div>
@@ -91,11 +89,9 @@ function setupButtonListeners() {
       const car = driver.driverPersonalDataResponse?.carDetails || {};
 
       selectedDriver = {
-        id: driver.driverPersonalDataResponse?.id, // ✅ use actual driver ID
+        id: driver.driverPersonalDataResponse?.id,
         name: driver.fullName || "Unnamed Driver",
-        car: `${car.vehicleMake || "Unknown"} (${
-          car.productionYear || "N/A"
-        }), ${car.carColor || "N/A"}`,
+        car: `${car.vehicleMake || "Unknown"} (${car.productionYear || "N/A"}), ${car.carColor || "N/A"}`,
         plate: car.carPlateNumber || "N/A",
         image: "/asset/driver.jpg",
       };
@@ -114,16 +110,20 @@ function setupButtonListeners() {
 
 // --- Confirm Selection ---
 confirmBtn.addEventListener("click", async () => {
+  startLoading(); // 🔹 Start loader here
+
   const token = localStorage.getItem("authToken");
 
   if (!selectedDriver) {
     alert("Please select a driver first!");
+    stopLoading();
     return;
   }
 
   const rideSelection = JSON.parse(localStorage.getItem("rideSelection"));
   if (!rideSelection) {
     alert("Pickup or destination missing. Please go back and select again.");
+    stopLoading();
     return;
   }
 
@@ -135,8 +135,6 @@ confirmBtn.addEventListener("click", async () => {
     driverId: selectedDriver.id,
     price: String(2000),
   };
-
-  console.log("Sending:", token);
 
   try {
     const response = await fetch(
@@ -157,6 +155,7 @@ confirmBtn.addEventListener("click", async () => {
 
     if (!response.ok) {
       alert("Failed: " + text);
+      stopLoading();
       return;
     }
 
@@ -165,8 +164,21 @@ confirmBtn.addEventListener("click", async () => {
   } catch (error) {
     console.error("Error booking ride:", error);
     alert("Error booking ride. Try again.");
+  } finally {
+    stopLoading(); // 🔹 Always stop loader at the end
   }
 });
 
 // --- Run on Page Load ---
 fetchDrivers();
+
+// --- Loader Functions ---
+function startLoading() {
+  confirmBtn.classList.add("loading");
+  confirmBtn.disabled = true;
+}
+
+function stopLoading() {
+  confirmBtn.classList.remove("loading");
+  confirmBtn.disabled = false;
+}

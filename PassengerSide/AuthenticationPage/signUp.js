@@ -41,7 +41,7 @@ form.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       alert("Registration Successful!");
-      // window.location.href = "/PassengerSide/Verification/verify.html";
+      window.location.href = "/Authentication/login.html";
     } else if (response.status === 409) {
       alert("Account already exists. Please log in instead.");
     } else {
