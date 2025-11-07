@@ -46,6 +46,11 @@ form.addEventListener("submit", async function (event) {
 
       localStorage.setItem("authToken", accessToken);
 
+      // Save the user's name
+      const fullName = `${result.data.fullName}`.trim();
+      localStorage.setItem("loggedInUserName", fullName);
+      console.log("Logged in user name:", fullName);
+
       const userRole = result.data.userType;
 
       if (userRole === "Driver") {
@@ -60,7 +65,6 @@ form.addEventListener("submit", async function (event) {
           }`.trim(),
           phoneNumber: result.data.phoneNumber,
         };
-        localStorage.setItem("loggedInDriver", JSON.stringify(driverData));
 
         // Redirect to Driver Dashboard
         window.location.href =

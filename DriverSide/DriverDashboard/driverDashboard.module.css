@@ -78,7 +78,7 @@ header {
 }
 
 .ride-request {
-  /* position: relative; */
+  position: relative;
 }
 
 main {
@@ -86,16 +86,22 @@ main {
 }
 
 .ride-request-card-div {
+  display: flex;
+  justify-content: center;
   background-color: white;
-  padding: 1rem;
-  padding: 30px 20px;
+  padding: 30px;
   position: fixed;
   top: 30px;
-  left: 0;
-  right: 0;
+  left: 15px;
+  right: 15px;
   border-radius: 1rem;
   z-index: 3;
   display: none;
+}
+
+.ride-request-card {
+  filter: blur(3px);
+  transition: filter 0.3s ease;
 }
 
 .ride-request-card-div.active {
@@ -116,15 +122,33 @@ main {
   height: 55px;
 }
 
-.passenger-details-general,
-.details-text {
+.coming-soon-text {
+  position: absolute;
+  top: 60px;
+  /* bottom: 0; */
+  z-index: 20;
+  font-size: 20px;
+  font-weight: 700;
+  /* color: green; */
+}
+
+.passenger-details-general {
   margin-left: 0.5rem;
   display: flex;
   gap: 1rem;
 }
 
+.details-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+  display: flex;
+  gap: 5px;
+}
+
 .cta-buttons {
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
   margin: 0.5rem;
 }
@@ -223,7 +247,8 @@ main {
   margin-top: 1.8rem;
 }
 
-.ridehistorydiv1, .ridehistorydiv2 {
+.ridehistorydiv1,
+.ridehistorydiv2 {
   padding: 20px;
   background-color: white;
   border-radius: 0.5rem;
@@ -235,7 +260,8 @@ main {
   color: #33404c;
 }
 
-.ridehistorydiv1_element, .ridehistorydiv2_element {
+.ridehistorydiv1_element,
+.ridehistorydiv2_element {
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,35 +1,34 @@
-const toggle = document.getElementById('toggle_switch');
-const offCircle = document.querySelector('.off-circle');
-const onCircle = document.querySelector('.on-circle');
-const notisBell = document.getElementById('notis');
-const overlay = document.getElementById('modal-overlay');
-const notisCard = document.getElementById('ride-request-card-div');
+const toggle = document.getElementById("toggle_switch");
+const offCircle = document.querySelector(".off-circle");
+const onCircle = document.querySelector(".on-circle");
+const notisBell = document.getElementById("notis");
+const overlay = document.getElementById("modal-overlay");
+const notisCard = document.getElementById("ride-request-card-div");
 const logoutBtn = document.getElementById("logout-btn");
 
-
 // For the toggle switch
-toggle.addEventListener('click', function () {
-  toggle.classList.toggle('active');
+toggle.addEventListener("click", function () {
+  toggle.classList.toggle("active");
 
-  if (toggle.classList.contains('active')) {
-    onCircle.classList.add('active');
-    offCircle.classList.add('active');
+  if (toggle.classList.contains("active")) {
+    onCircle.classList.add("active");
+    offCircle.classList.add("active");
   } else {
-    onCircle.classList.remove('active');
-    offCircle.classList.remove('active');
+    onCircle.classList.remove("active");
+    offCircle.classList.remove("active");
   }
-}); 
+});
 
 // function to remove the driver token
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("authToken");
-  window.location.href = "/"
-})
+  window.location.href = "/";
+});
 
 // for the notification popup; opening
 function openPopup() {
-  overlay.classList.add('active');
-  notisCard.classList.add('active');
+  overlay.classList.add("active");
+  notisCard.classList.add("active");
 
   // Clear the notification after viewing
   localStorage.removeItem("selectedDriver");
@@ -38,13 +37,13 @@ function openPopup() {
   const notisShow = document.querySelector(".notis_show");
   if (notisShow) notisShow.style.visibility = "hidden";
 }
-notisBell.addEventListener('click', openPopup);
+notisBell.addEventListener("click", openPopup);
 
 // for closing popup
 function closePopup() {
-  overlay.classList.remove('active');
-  notisCard.classList.remove('active');
-};
+  overlay.classList.remove("active");
+  notisCard.classList.remove("active");
+}
 
 overlay.addEventListener("click", function (event) {
   if (event.target === overlay) {
@@ -52,9 +51,8 @@ overlay.addEventListener("click", function (event) {
   }
 });
 
-console.log("✅ selectedDriver:", selectedDriver);
-console.log("✅ loggedInDriver:", loggedInDriver);
-
+// console.log("selectedDriver:", selectedDriver);
+// console.log("loggedInDriver:", loggedInDriver);
 
 // 🟢 ADD THIS BLOCK AT THE VERY BOTTOM ↓↓↓
 window.addEventListener("load", () => {
@@ -62,10 +60,18 @@ window.addEventListener("load", () => {
   if (!notisShow) return;
 
   const selectedDriver = JSON.parse(localStorage.getItem("selectedDriver"));
-  const loggedInDriver = JSON.parse(localStorage.getItem("loggedInDriver")); 
+  const loggedInDriver = JSON.parse(localStorage.getItem("loggedInDriver"));
   // ^ This should be set when the driver logs in — contains the driver’s ID or name.
 
-  if (selectedDriver && loggedInDriver && selectedDriver.id === loggedInDriver.id) {
+  // Get the user name saved in localStorage and log it
+  const loggedInUserName = localStorage.getItem("loggedInUserName");
+  document.getElementById("driver-name").textContent = loggedInUserName || "";
+
+  if (
+    selectedDriver &&
+    loggedInDriver &&
+    selectedDriver.id === loggedInDriver.id
+  ) {
     // ✅ Show notification ONLY to the driver who was selected
     notisShow.style.visibility = "visible";
   } else {
@@ -73,4 +79,3 @@ window.addEventListener("load", () => {
     notisShow.style.visibility = "hidden";
   }
 });
-
