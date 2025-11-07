@@ -77,9 +77,9 @@ header {
   display: flex;
 }
 
-.ride-request {
-  /* position: relative; */
-}
+/* .ride-request {
+  position: relative;
+} */
 
 main {
   width: clamp(300px, 87vw, 1000px);
